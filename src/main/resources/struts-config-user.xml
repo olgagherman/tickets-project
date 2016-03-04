@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="appDefaultStack" />
+
+
+		<global-exception-mappings>
+			<exception-mapping result="error"
+				exception="md.utm.library.exception.ObjectsNotFoundException"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="login">
+			<result>user/login.jsp</result>
+		</action>
+
+		<action name="logout" class="md.utm.library.action.user.LoginAuthAction"
+			method="logOut">
+			<result>user/login.jsp</result>
+		</action>
+
+		<action name="register">
+			<result>user/createUser.jsp</result>
+		</action>
+
+		<action name="loginauth" class="md.utm.library.action.user.LoginAuthAction">
+			<result name="success" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+			<result name="error">
+				user/login.jsp
+			</result>
+		</action>
+
+		<action name="createUserAction" class="userAction" method="addUser">
+			<result name="success">index.jsp</result>
+			<result name="error">user/createUser.jsp</result>
+		</action>
+
+		<action name="updateUserAction" class="userAction" method="updateUser">
+			<result name="success" type="redirectAction">listUsersAction</result>
+			<result name="error" type="redirectAction">listUsersAction</result>
+		</action>
+
+		<action name="listUsersAction" class="userAction" method="listAllUsers">
+			<result name="success">user/users.jsp</result>
+		</action>
+
+		<action name="editUser" class="userAction" method="editUser">
+			<result name="success">user/createUser.jsp</result>
+		</action>
+
+		<action name="removeUser" class="userAction" method="removeUser">
+			<result name="success" type="redirectAction">listUsersAction</result>
+		</action>
+
+	</package>
+</struts>
