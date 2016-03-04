@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+
+.errors {
+	background-color: #FFCCCC;
+	border: 1px solid #CC0000;
+	width: 220px;
+	line-height: 10px;
+}
+
+.errors li {
+	list-style: none;
+}
