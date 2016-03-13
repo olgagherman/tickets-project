@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Ticket {
+	
 	private Integer id;
 	private String name;
 	private String subject;
