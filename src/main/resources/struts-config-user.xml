@@ -19,14 +19,14 @@
 
 		<global-exception-mappings>
 			<exception-mapping result="error"
-				exception="md.utm.library.exception.ObjectsNotFoundException"></exception-mapping>
+				exception="md.utm.fi.exception.ObjectsNotFoundException"></exception-mapping>
 		</global-exception-mappings>
 
 		<action name="login">
 			<result>user/login.jsp</result>
 		</action>
 
-		<action name="logout" class="md.utm.library.action.user.LoginAuthAction"
+		<action name="logout" class="md.utm.fi.action.user.LoginAuthAction"
 			method="logOut">
 			<result>user/login.jsp</result>
 		</action>
@@ -35,7 +35,7 @@
 			<result>user/createUser.jsp</result>
 		</action>
 
-		<action name="loginauth" class="md.utm.library.action.user.LoginAuthAction">
+		<action name="loginauth" class="md.utm.fi.action.user.LoginAuthAction">
 			<result name="success" type="redirect">
 				<param name="location">/index.jsp</param>
 			</result>
