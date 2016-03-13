@@ -5,9 +5,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class Project {
+public class Message {
 	private Integer id;
-	private String name;
+	private String body;
 	private Date createdDate;
 
 	public Integer getId() {
@@ -18,12 +18,12 @@ public class Project {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getBody() {
+		return body;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	public Date getCreatedDate() {
