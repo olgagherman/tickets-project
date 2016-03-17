@@ -25,7 +25,9 @@
 		<action name="board">
 			<result>ticket/board.jsp</result>
 		</action>
-
+<action name="listTicketsAction" class="ticketAction" method="listAllTickets">
+			<result name="success">ticket/viewTickets.jsp</result>
+		</action>
 
 	</package>
 </struts>
