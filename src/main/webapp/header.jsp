@@ -7,44 +7,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/login.css">
-			<title>Library</title>
+				<link rel="stylesheet" type="text/css" href="css/header.css">
+		
+			<title>Ticket</title>
 </head>
 
-<body>
 
-	<div id="container">
-		<div id="mainpic">
-			<h1>
-				University<span class="lighter">Library</span>
-			</h1>
-			<h2>
-				A template by UTM<br />
-				<s:if test="%{#session.logged ==true}">
+<p><font size="5" color="blue">Ticket System</font>
+<font size="4" color="green" style="float:right"> <s:if test="%{#session.logged ==true}">
 				Welcome <i>${sessionScope.userName}</i>
 				</s:if>
-			</h2>
-		</div>
+				</font>
+</p>
 
-		<div id="menu">
-			<ul>
-				<s:if test="%{#session.logged ==false}">
-					<li class="menuitem"><a href="login">Login</a></li>
-				</s:if>
-				<s:else>
-					<li class="menuitem"><a href="logout">Logout</a></li>
-				</s:else>
-				<li class="menuitem"><a href="#">Newest</a></li>
-				<li class="menuitem"><a href="#">Most popular</a></li>
-				<li class="menuitem"><a href="#">Authors</a></li>
-				<s:if test="%{#session.logged ==true}">
-					<li class="menuitem"><a href="#">Upload</a></li>
-					<li class="menuitem"><a href="#">Download</a></li>
-				</s:if>
-				<s:if test="%{#session.admin ==true}">
-					<li class="menuitem"><a href="listUsersAction">Users</a></li>
-				</s:if>
-			</ul>
-		</div>
 
-		<div id="content">
-			<a href="index.jsp">Home</a>
+<ul>
+  <li><a  href="board">Board</a></li>
+  <li><a href="#news">Tickets</a></li>
+  <li><a href="listUsersAction">Users</a></li>
+    <li><a href="#contact">Search</a></li>
+    <li><a href="#contact">Users</a></li>
+  
+  <li style="float:right"><a href="logout">	Logout</a></li>
+</ul>
+
+

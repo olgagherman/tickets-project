@@ -4,7 +4,7 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="ticket" namespace="/" extends="struts-default">
 		<interceptors>
 			<interceptor-stack name="appDefaultStack">
 				<interceptor-ref name="defaultStack">
@@ -23,48 +23,9 @@
 		</global-exception-mappings>
 
 		<action name="board">
-			<result>user/login.jsp</result>
-		</action>
-<!-- 
-		<action name="logout" class="md.utm.library.action.ticket.LoginAuthAction"
-			method="logOut">
-			<result>ticket/login.jsp</result>
+			<result>ticket/board.jsp</result>
 		</action>
 
-		<action name="board">
-			<result>ticket/createticket.jsp</result>
-		</action>
-
-		<action name="loginauth" class="md.utm.library.action.ticket.LoginAuthAction">
-			<result name="success" type="redirect">
-				<param name="location">/index.jsp</param>
-			</result>
-			<result name="error">
-				ticket/login.jsp
-			</result>
-		</action>
-
-		<action name="createticketAction" class="ticketAction" method="addticket">
-			<result name="success">index.jsp</result>
-			<result name="error">ticket/createTicket.jsp</result>
-		</action>
-
-		<action name="updateTicketAction" class="icketAction" method="updateTicket">
-			<result name="success" type="redirectAction">listTicketsAction</result>
-			<result name="error" type="redirectAction">listTicketsAction</result>
-		</action>
-
-		<action name="listticketsAction" class="ticketAction" method="listAllTickets">
-			<result name="success">ticket/tickets.jsp</result>
-		</action>
-
-		<action name="editticket" class="ticketAction" method="editticket">
-			<result name="success">ticket/createTicket.jsp</result>
-		</action>
-
-		<action name="removeticket" class="ticketAction" method="removeTicket">
-			<result name="success" type="redirectAction">listTicketsAction</result>
-		</action> -->
 
 	</package>
 </struts>
