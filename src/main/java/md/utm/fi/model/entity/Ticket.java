@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Ticket {
@@ -14,7 +16,7 @@ public class Ticket {
 	private String name;
 	private String subject;
 	private Integer complexity;
-	private Date created;
+	private Date createdDate;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,12 +52,13 @@ public class Ticket {
 		this.complexity = complexity;
 	}
 
-	public Date getCreated() {
-		return created;
+	@Temporal(TemporalType.DATE)
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 }

@@ -22,7 +22,7 @@
 
 
 <ul>
-  <li><a  href="board">Board</a></li>
+  <li><a class="active"  href="board">Board</a></li>
   <li><a href="#news">Tickets</a></li>
   <li><a href="listUsersAction">Users</a></li>
     <li><a href="#contact">Search</a></li>
@@ -30,5 +30,4 @@
   
   <li style="float:right"><a href="logout">	Logout</a></li>
 </ul>
-
 

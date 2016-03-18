@@ -13,7 +13,7 @@
 			<th>subject</th>
 			<th>complexity</th>
 			<th>Created Date</th>
-			
+			<th>Edit</th>
 		</tr>
 		<s:iterator value="ticketList" status="ticketStatus">
 			<tr>

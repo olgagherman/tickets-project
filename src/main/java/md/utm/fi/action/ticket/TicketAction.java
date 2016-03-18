@@ -1,6 +1,7 @@
 package md.utm.fi.action.ticket;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -44,12 +45,12 @@ public class TicketAction implements ModelDriven<Ticket> {
 		return ticketId;
 	}
 
-	public void setTicketId(int TicketId) {
+	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
 	}
 
 	public String addTicket() throws Exception {
-		// ticket.setCreatedDate(new Date());
+		ticket.setCreatedDate(new Date());
 		ticketDAO.save(ticket);
 		if (ticket.getName() != null) {
 			return Action.SUCCESS;

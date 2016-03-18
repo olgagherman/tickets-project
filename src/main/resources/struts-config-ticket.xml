@@ -28,6 +28,9 @@
 <action name="listTicketsAction" class="ticketAction" method="listAllTickets">
 			<result name="success">ticket/viewTickets.jsp</result>
 		</action>
-
+	
+	<action name="editTicket" class="ticketAction" method="editTicket">
+			<result name="success">ticket/createTicket.jsp</result>
+		</action>
 	</package>
 </struts>
