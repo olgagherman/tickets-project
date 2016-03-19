@@ -7,32 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/login.css">
-				<link rel="stylesheet" type="text/css" href="css/header.css">
-		
-			<title>Ticket</title>
+			<link rel="stylesheet" type="text/css" href="css/header.css">
+				<title>Ticket</title>
 </head>
 
-
-<p><font size="5" color="blue">Ticket System</font>
-<font size="4" color="green" style="float:right"> <s:if test="%{#session.logged ==true}">
+<header>
+<p>
+	<font size="5" color="blue">Ticket System</font> <font size="4"
+		color="green" style="float: right"> <s:if
+			test="%{#session.logged ==true}">
 				Welcome <i>${sessionScope.userName}</i>
-				</s:if>
-				</font>
+		</s:if>
+	</font>
 </p>
-
-
-<ul>
-  <li><a class="active"  href="board">Board</a></li>
-  <li><a href="#news">Tickets</a></li>
-  <li><a href="listUsersAction">Users</a></li>
-    <li><a href="listProjectsAction">Projects</a></li>
-   
-  <s:if test="%{#session.logged == false}">
-					<li style="float:right"><a href="login">Login</a></li>
-				</s:if>
-				<s:else>
-					<li style="float:right"><a href="logout">Logout</a></li>
-				</s:else>
- 
-</ul>
-
+</header>
