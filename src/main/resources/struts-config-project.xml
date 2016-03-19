@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="project" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="appDefaultStack" />
+
+
+		<global-exception-mappings>
+			<exception-mapping result="error"
+				exception="md.utm.fi.exception.ObjectsNotFoundException"></exception-mapping>
+		</global-exception-mappings>
+
+	
+<action name="listProjectsAction" class="projectAction" method="listAllProjects">
+			<result name="success">project/viewProjects.jsp</result>
+		</action>
+	
+	<action name="editProject" class="projectAction" method="editProject">
+			<result name="success">project/createProject.jsp</result>
+		</action>
+		
+		<action name="updateProjectAction" class="projectAction" method="updateProject">
+			<result name="success" type="redirectAction">listProjectsAction</result>
+			<result name="error" type="redirectAction">listProjectsAction</result>
+		</action>
+		<action name="registerProject">
+			<result>project/createProject.jsp</result>
+		</action>
+		
+		<action name="createProjectAction" class="projectAction" method="addProject">
+			<result name="success"  type="redirectAction">listProjectsAction</result>
+			<result name="error">project/createProject.jsp</result>
+		</action>
+			<action name="removeProject" class="projectAction" method="removeProject">
+			<result name="success" type="redirectAction">listProjectsAction</result>
+		</action>
+		
+	</package>
+</struts>

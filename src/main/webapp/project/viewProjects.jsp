@@ -5,32 +5,28 @@
 
 
 <s:include value="../header.jsp" />
-<s:if test="ticketList.size() > 0">
+<s:if test="projectList.size() > 0">
 	<table border="1px" cellpadding="8px">
 		<tr>
 	
 			<th>Name</th>
-			<th>subject</th>
-			<th>complexity</th>
-			<th>Created Date</th>
+		  <th>Created Date</th>
 			<th>Edit</th>
 		</tr>
-		<s:iterator value="ticketList" status="ticketStatus">
+		<s:iterator value="projectList" status="projectStatus">
 			<tr>
 				<td><s:property value="name" /></td>
-				<td><s:property value="subject" /></td>
-				<td><s:property value="complexity" /></td>
 				<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 				
 				<td><a
-					href=<s:url action="editTicket">
-						<s:param name="ticketId" value="%{id}" />
+					href=<s:url action="editProject">
+						<s:param name="projectId" value="%{id}" />
 					</s:url>>
 						<img alt="Edit" src=<s:url value="/images/edit-icon.png"/>>
 				</a>
 				<a
-					href=<s:url action="removeTicket">
-						<s:param name="ticketId" value="%{id}" />
+					href=<s:url action="removeProject">
+						<s:param name="projectId" value="%{id}" />
 					</s:url>>
 						<img alt="Remove" src=<s:url value="/images/delete-icon.png"/>>
 				</a></td>
@@ -39,5 +35,5 @@
 	</table>
 </s:if>
 <br/>
-<a href="registerTicket">ADD new Ticket</a>
+<a href="registerProject">ADD new Project</a>
 <s:include value="footer.jsp"/>

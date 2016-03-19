@@ -12,6 +12,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<import resource="md/utm/fi/model/dao/UserBean.xml" />
 		<import resource="md/utm/fi/model/dao/TicketBean.xml" />
+				<import resource="md/utm/fi/model/dao/ProjectBean.xml" />
+		
 	
 
 

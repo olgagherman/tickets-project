@@ -2,17 +2,15 @@
 
 <s:include value="../header.jsp" />
 
-<h2>Create Ticket</h2>
+<h2>Create Project</h2>
 <s:form>
 	<s:textfield name="name" label="Name" value="%{name}" />
-	<s:textfield name="subject" label="Subject" value="%{subject}" />
 	<s:textfield name="createdDate" label="Created Date" value="%{createdDate}" />
-	<s:textfield name="complexity" label="Complexity" value="%{complexity}" />
 	<s:if test="%{id==null}">
-		<s:submit value="Create" action="createTicketAction" />
+		<s:submit value="Create" action="createProjectAction" />
 	</s:if>
 	<s:else>
-		<s:submit value="Update" action="updateTicketAction"/>
+		<s:submit value="Update" action="updateProjectAction"/>
 	</s:else>
 </s:form>
 

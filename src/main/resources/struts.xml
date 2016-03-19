@@ -7,5 +7,7 @@
 	<constant name="struts.devMode" value="true" />
 	<include file="struts-config-user.xml" />
 	<include file="struts-config-ticket.xml" />
+	<include file="struts-config-project.xml" />
+	
 	
 </struts>
