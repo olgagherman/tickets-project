@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	<!-- Database Configuration -->
+	<import resource="classpath:/config/spring/DataSource.xml" />
+	<import resource="classpath:/config/spring/HibernateSessionFactory.xml" />
+	<import resource="classpath:/config/spring/app-context.xml" />
+	<import resource="classpath:/md/utm/fi/model/dao/UserBean.xml" />
+		<import resource="classpath:/md/utm/fi/model/dao/ProjectBean.xml" />
+	
+	
+</beans>
