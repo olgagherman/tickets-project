@@ -7,34 +7,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/login.css">
-<<<<<<< .mine
+
 			<link rel="stylesheet" type="text/css" href="css/header.css">
 
 				<title>Ticket</title>
-=======
+
 			<link rel="stylesheet" type="text/css" href="css/header.css">
 				<title>Ticket</title>
->>>>>>> .r41
+
 </head>
 
-<<<<<<< .mine
 
 <p>
 	<font size="5" color="blue">Ticket System</font> <font size="4"
-		color="green" style="float: right"> <s:if
-			test="%{#session.logged ==true}">
-=======
+		color="green" style="float: right">
 <header>
 <p>
 	<font size="5" color="blue">Ticket System</font> <font size="4"
 		color="green" style="float: right"> <s:if
 			test="%{#session.logged ==true}">
->>>>>>> .r41
+
 				Welcome <i>${sessionScope.userName}</i>
 		</s:if>
 	</font>
 </p>
-<<<<<<< .mine
+
 
 
 <ul>
@@ -50,5 +47,5 @@
 		<li style="float: right"><a href="logout">Logout</a></li>
 	</c:else>
 
-</ul>=======
-</header>>>>>>>> .r41
+</ul>
+</header>
