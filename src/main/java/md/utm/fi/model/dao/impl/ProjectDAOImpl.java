@@ -1,15 +1,15 @@
 package md.utm.fi.model.dao.impl;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.entity.Project;
+import md.utm.fi.model.entity.User;
 
 @SuppressWarnings("unchecked")
 public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
-	public List<Book> retrieveAllUploadedProjectBooks(Project project) {
-		return getHibernateTemplate().find("from Book b where b.uploader.id=?", project.getId());
+	public List<User> retrieveAllProjectUser(int id) {
+		return getHibernateTemplate().find("from User u where u.project.id=?", id);
 	}
 
 	public List<Project> getAllProjects() {
@@ -23,4 +23,9 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 	public void deleteProject(Integer id) {
 		delete(findProject(id));
 	}
+
+	public void deleteProjectUser(int id) {
+		// return getHibernateTemplate().delete().
+	}
+
 }

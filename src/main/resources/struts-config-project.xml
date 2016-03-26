@@ -46,6 +46,14 @@
 			<action name="removeProject" class="projectAction" method="removeProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 		</action>
+		<action name="getBodyProject" class="projectAction" method="getBodyProject">
+			<result name="success">project/bodyProject.jsp</result>
+		</action>
+		
+	
+			<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
+			<result name="success" type="redirectAction">project/bodyProject.jsp</result>
+		</action>
 		
 	</package>
 </struts>

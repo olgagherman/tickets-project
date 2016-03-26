@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -12,22 +12,14 @@
 
 				<title>Ticket</title>
 
-			<link rel="stylesheet" type="text/css" href="css/header.css">
-				<title>Ticket</title>
-
+		
 </head>
-
-
-<p>
-	<font size="5" color="blue">Ticket System</font> <font size="4"
-		color="green" style="float: right">
 <header>
 <p>
 	<font size="5" color="blue">Ticket System</font> <font size="4"
-		color="green" style="float: right"> <s:if
-			test="%{#session.logged ==true}">
-
-				Welcome <i>${sessionScope.userName}</i>
+		color="green" style="float: right"> 
+		<s:if test="%{#session.logged ==true}">
+		Welcome <i>${sessionScope.userName}</i>
 		</s:if>
 	</font>
 </p>
@@ -39,13 +31,21 @@
 	<li><a href="#news">Tickets</a></li>
 	<li><a href="listUsersAction">Users</a></li>
 	<li><a href="listProjectsAction">Projects</a></li>
-
-	<c:if test="%{#session.logged == false}">
+<!--  <li>
+ 
+ <a 	href=<s:url action="getBodyProject">
+<s:param name="projectId" value="%{1}" />
+</s:url>>
+	Project
+				</a>
+ 
+ </li> -->
+	<s:if test="%{#session.logged == false}">
 		<li style="float: right"><a href="login">Login</a></li>
-	</c:if>
-	<c:else>
+	</s:if>
+	<s:else>
 		<li style="float: right"><a href="logout">Logout</a></li>
-	</c:else>
+	</s:else>
 
 </ul>
 </header>

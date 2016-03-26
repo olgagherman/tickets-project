@@ -13,4 +13,8 @@ public interface UserDAO extends GenericDao {
 	User findUser(Integer id);
 
 	void deleteUser(Integer id);
+
+	/*
+	 * public List<Project> retrieveAllProjects(User user);
+	 */
 }

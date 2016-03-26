@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.entity.Project;
+import md.utm.fi.model.entity.User;
 
 public class ProjectAction implements ModelDriven<Project> {
 
@@ -19,7 +20,17 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	private List<Project> projectList;
 
+	private List<User> usersList;
+
 	private Integer projectId;
+
+	public List<User> getUserList() {
+		return usersList;
+	}
+
+	public void settUserList(List<User> userList) {
+		this.usersList = userList;
+	}
 
 	public List<Project> getProjectList() {
 		return projectList;
@@ -47,6 +58,19 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
+	}
+
+	public String getBodyProject() {
+		project = projectDAO.findProject(projectId);
+		listAllProjectUsers();
+		if (project == null) {
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	public String addProject() throws Exception {
@@ -82,6 +106,13 @@ public class ProjectAction implements ModelDriven<Project> {
 		return Action.SUCCESS;
 	}
 
+	public String removeProjectUser() {
+		if (projectId != null) {
+			projectDAO.deleteProjectUser(projectId);
+		}
+		return Action.SUCCESS;
+	}
+
 	// list all Projects
 	public String listAllProjects() {
 		projectList = projectDAO.getAllProjects();
@@ -91,4 +122,19 @@ public class ProjectAction implements ModelDriven<Project> {
 		return Action.SUCCESS;
 	}
 
+	public String addUserToProject() {
+		projectList = projectDAO.getAllProjects();
+		if (projectList == null) {
+			projectList = new ArrayList<Project>();
+		}
+		return Action.SUCCESS;
+	}
+
+	public String listAllProjectUsers() {
+		usersList = projectDAO.retrieveAllProjectUser(projectId);
+		if (usersList == null) {
+			usersList = new ArrayList<User>();
+		}
+		return Action.SUCCESS;
+	}
 }

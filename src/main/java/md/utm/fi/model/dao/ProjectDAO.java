@@ -3,6 +3,7 @@ package md.utm.fi.model.dao;
 import java.util.List;
 
 import md.utm.fi.model.entity.Project;
+import md.utm.fi.model.entity.User;
 
 public interface ProjectDAO extends GenericDao {
 
@@ -12,4 +13,7 @@ public interface ProjectDAO extends GenericDao {
 
 	void deleteProject(Integer id);
 
+	List<User> retrieveAllProjectUser(int id);
+
+	public void deleteProjectUser(int id);
 }
