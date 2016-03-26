@@ -131,7 +131,7 @@ public class ProjectAction implements ModelDriven<Project> {
 	}
 
 	public String listAllProjectUsers() {
-		usersList = projectDAO.retrieveAllProjectUser(projectId);
+		usersList = projectDAO.retrieveAllProjectUser(projectDAO.findProject(projectId));
 		if (usersList == null) {
 			usersList = new ArrayList<User>();
 		}

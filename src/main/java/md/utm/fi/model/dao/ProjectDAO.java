@@ -13,7 +13,7 @@ public interface ProjectDAO extends GenericDao {
 
 	void deleteProject(Integer id);
 
-	List<User> retrieveAllProjectUser(int id);
+	List<User> retrieveAllProjectUser(Project id);
 
 	public void deleteProjectUser(int id);
 }

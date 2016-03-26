@@ -8,8 +8,9 @@ import md.utm.fi.model.entity.User;
 
 @SuppressWarnings("unchecked")
 public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
-	public List<User> retrieveAllProjectUser(int id) {
-		return getHibernateTemplate().find("from User u where u.project.id=?", id);
+	public List<User> retrieveAllProjectUser(Project id) {
+		String value = "from  User user0_ left outer join userAssignProject project1_ on user0_.id=project1_.user_id left outer join Project project2_ on project1_.project_id=project2_.id  where project2_.id=?";
+		return getHibernateTemplate().find(value, id.getId());
 	}
 
 	public List<Project> getAllProjects() {

@@ -69,4 +69,4 @@
 
 
 <a href="registerProject">ADD new Project</a>
-<s:include value="footer.jsp"/>
+<s:include value="../footer.jsp"/>

@@ -5,10 +5,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,15 +26,19 @@ public class UserDAOImplTest {
 	@Autowired
 	private UserDAO testable;
 	@Autowired
+	private HibernateTransactionManager transactionManager;
+	@Autowired
 	private ProjectDAO projectDao;
 	@Autowired
 	private SessionFactory sessionFactory;
 	private User user;
 	private Project project;
 
-	@Test
+	// @Test
 	// @Transactional
 	public void testCreateUser() {
+		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
+		beginTransaction.begin();
 
 		project = new Project();
 		project.setCreatedDate(new Date());
@@ -60,23 +66,55 @@ public class UserDAOImplTest {
 
 		project.setUsers(users);
 		projectDao.save(project);
-		testable.deleteUser(5);
+		// testable.deleteUser(5);
 		// List<Project> projects = new ArrayList<Project>();
 		// projects.add(project);
 		// user.setProjects(projects);
 		// testable.save(user);
 		// Assert.assertTrue(user.getId() > 0);
 
-		// List<User> userlist = projectDao.retrieveAllProjectUser(project);
-		// testable.save(user);
+	}
+
+	// @Test
+	public void testGetUser() {
+		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
+		beginTransaction.begin();
+		User findUser = testable.findUser(6);
+
+		System.out.println(findUser.getEmail());
+		testable.refresh(findUser);
+		List<Project> project2 = findUser.getProject();
+		for (Project project : project2) {
+			System.out.println(project.getName());
+		}
+		beginTransaction.commit();
 	}
 
 	@Test
-	// @Transactional
-	public void testDeleteUser() {
+	public void testGetUsers() {
+		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
+		beginTransaction.begin();
+		project = projectDao.findProject(6);
+		// String value = "from User user0_ left outer join userAssignProject
+		// project1_ on user0_.id=project1_.user_id left outer join Project
+		// project2_ on project1_.project_id=project2_.id where user0_.id=?";
+		// Session currentSession =
+		// transactionManager.getSessionFactory().getCurrentSession();
+		// Query query = currentSession.createQuery(value);
+		// query.setInteger(1, user.getId());
+		// List<User> userlist = query.list();
+		projectDao.retrieveAllProjectUser(project);
+		// List<User> userlist = projectDao.retrieveAllProjectUser(project);
+		// testable.save(user);
 
-		testable.deleteUser(25);
-
+		beginTransaction.commit();
 	}
+	/*
+	 * @Test // @Transactional public void testDeleteUser() {
+	 * 
+	 * testable.deleteUser(25);
+	 * 
+	 * }
+	 */
 
 }

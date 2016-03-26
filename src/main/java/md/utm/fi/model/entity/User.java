@@ -1,14 +1,16 @@
 package md.utm.fi.model.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,7 +23,7 @@ public class User extends Person {
 	private String phoneNumber;
 	private Date createdDate;
 	private boolean admin;
-	private Project project;
+	private List<Project> projects;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,15 +76,15 @@ public class User extends Person {
 		this.admin = admin;
 	}
 
-	@ManyToOne
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
-	public Project getProject() {
+	public List<Project> getProject() {
 
-		return project;
+		return projects;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setProject(List<Project> projects) {
+		this.projects = projects;
 	}
 
 }

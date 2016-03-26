@@ -52,7 +52,7 @@
 		
 	
 			<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
-			<result name="success" type="redirectAction">project/bodyProject.jsp</result>
+			<result name="success" type="redirectAction">getBodyProject</result>
 		</action>
 		
 	</package>
