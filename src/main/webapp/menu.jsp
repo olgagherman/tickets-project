@@ -1,6 +1,6 @@
 <ul>
   <li><a class="active"  href="board">Board</a></li>
-  <li><a href="#news">Tickets</a></li>
+  <li><a href="listTicketsAction">Tickets</a></li>
   <li><a href="listUsersAction">Users</a></li>
     <li><a href="listProjectsAction">Projects</a></li>
    

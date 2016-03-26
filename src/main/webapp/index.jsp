@@ -9,7 +9,7 @@
 	
 
 <s:include value="header.jsp"/>
-<s:include value="menu.jsp"/>
+
 
 <s:include value="footer.jsp"/>
 
