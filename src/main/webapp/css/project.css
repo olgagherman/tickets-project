@@ -1,0 +1,26 @@
+#rcorners5 {
+    border-radius: 15px 50px 30px;
+    background-image:url("../images/projects-background.jpg");
+
+    padding: 20px; 
+    width: 70%;
+    height: 150px; 
+}
+
+#description {
+   float: right;
+    padding: 5px; 
+    width: auto;
+    height: auto; 
+}
+#imag{
+   float: left;
+    padding: 5px; 
+    width: 150px;
+    height: 150px; 
+}
+#editProj{
+	  float: right;
+	    width: auto;
+    height: auto; 
+}

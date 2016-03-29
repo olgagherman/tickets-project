@@ -78,12 +78,12 @@ public class User extends Person {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
-	public List<Project> getProject() {
+	public List<Project> getProjects() {
 
 		return projects;
 	}
 
-	public void setProject(List<Project> projects) {
+	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
 

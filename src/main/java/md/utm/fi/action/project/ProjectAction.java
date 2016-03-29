@@ -28,7 +28,7 @@ public class ProjectAction implements ModelDriven<Project> {
 		return usersList;
 	}
 
-	public void settUserList(List<User> userList) {
+	public void setUserList(List<User> userList) {
 		this.usersList = userList;
 	}
 

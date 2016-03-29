@@ -6,6 +6,7 @@
 <s:form>
 	<s:textfield name="name" label="Name" value="%{name}" />
 	<s:textfield name="createdDate" label="Created Date" value="%{createdDate}" />
+	<s:textarea label="Description" name="description" cols="30" rows="8"  />
 	<s:if test="%{id==null}">
 		<s:submit value="Create" action="createProjectAction" />
 	</s:if>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.joda.time.DateTime;
@@ -34,18 +36,23 @@ public class UserDAOImplTest {
 	private User user;
 	private Project project;
 
-	// @Test
+	@Test
 	// @Transactional
 	public void testCreateUser() {
-		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
-		beginTransaction.begin();
+		// Transaction beginTransaction =
+		// transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
+		// beginTransaction.begin();
 
 		project = new Project();
 		project.setCreatedDate(new Date());
 		project.setName("test");
+		project.setDescription("Adaugat de test");
 		projectDao.save(project);
 		user = new User();
+
 		List<User> users = new ArrayList<User>();
+		List<Project> projects = new ArrayList<Project>();
+		projects.add(project);
 
 		user.setCreatedDate(new DateTime(2012, 1, 1, 0, 0, 0).toDate());
 		user.setEmail("ion@mail.ru");
@@ -53,7 +60,10 @@ public class UserDAOImplTest {
 		user.setPassword("ion83");
 		user.setSurname("Bushmaciu");
 		testable.save(user);
+		user.setProjects(projects);
+		testable.saveOrUpdate(user);
 		users.add(user);
+
 		// testable.refresh(project);
 		user = new User();
 		user.setCreatedDate(new DateTime(2012, 1, 1, 0, 0, 0).toDate());
@@ -62,28 +72,34 @@ public class UserDAOImplTest {
 		user.setPassword("ion83");
 		user.setSurname("Bushmaciu");
 		testable.save(user);
+		user.setProjects(projects);
+		testable.saveOrUpdate(user);
 		users.add(user);
 
 		project.setUsers(users);
-		projectDao.save(project);
+		projectDao.saveOrUpdate(project);
+
+		Project project = projectDao.findProject(28);
+		projectDao.refresh(project);
+
 		// testable.deleteUser(5);
 		// List<Project> projects = new ArrayList<Project>();
 		// projects.add(project);
 		// user.setProjects(projects);
 		// testable.save(user);
 		// Assert.assertTrue(user.getId() > 0);
-
+		List<User> userlist = project.getUsers();
 	}
 
-	// @Test
+	@Test
 	public void testGetUser() {
 		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
 		beginTransaction.begin();
-		User findUser = testable.findUser(6);
+		User findUser = testable.findUser(45);
 
 		System.out.println(findUser.getEmail());
 		testable.refresh(findUser);
-		List<Project> project2 = findUser.getProject();
+		List<Project> project2 = findUser.getProjects();
 		for (Project project : project2) {
 			System.out.println(project.getName());
 		}
@@ -92,9 +108,11 @@ public class UserDAOImplTest {
 
 	@Test
 	public void testGetUsers() {
-		Transaction beginTransaction = transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
-		beginTransaction.begin();
-		project = projectDao.findProject(6);
+		// Transaction beginTransaction =
+		// transactionManager.getSessionFactory().getCurrentSession().beginTransaction();
+		// beginTransaction.begin();
+		Project project = projectDao.findProject(28);
+		projectDao.refresh(project);
 		// String value = "from User user0_ left outer join userAssignProject
 		// project1_ on user0_.id=project1_.user_id left outer join Project
 		// project2_ on project1_.project_id=project2_.id where user0_.id=?";
@@ -103,12 +121,15 @@ public class UserDAOImplTest {
 		// Query query = currentSession.createQuery(value);
 		// query.setInteger(1, user.getId());
 		// List<User> userlist = query.list();
-		projectDao.retrieveAllProjectUser(project);
-		// List<User> userlist = projectDao.retrieveAllProjectUser(project);
+		// projectDao.retrieveAllProjectUser(project);
+		List<User> userlist = project.getUsers();
 		// testable.save(user);
-
-		beginTransaction.commit();
+		/*
+		 * for (User us : userlist) { System.out.println(us.getName()); }
+		 */
+		// beginTransaction.commit();
 	}
+
 	/*
 	 * @Test // @Transactional public void testDeleteUser() {
 	 * 
@@ -116,5 +137,13 @@ public class UserDAOImplTest {
 	 * 
 	 * }
 	 */
+	@Test
+	public void selectTest() throws Exception
 
+	{
+		HibernateUtil hibernateUtil = new HibernateUtil();
+		Session session = hibernateUtil.getSession();
+		Query query = session.createQuery("from user where Id > 10");
+		List results = query.list();
+	}
 }

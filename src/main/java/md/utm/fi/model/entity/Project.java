@@ -17,6 +17,7 @@ public class Project {
 	private Integer id;
 	private String name;
 	private Date createdDate;
+	private String description;
 	private List<User> users;
 
 	@Id
@@ -53,6 +54,14 @@ public class Project {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
