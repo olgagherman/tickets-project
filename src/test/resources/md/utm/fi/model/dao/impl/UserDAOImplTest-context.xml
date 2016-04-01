@@ -10,6 +10,6 @@
 	<import resource="classpath:/config/spring/app-context.xml" />
 	<import resource="classpath:/md/utm/fi/model/dao/UserBean.xml" />
 	<import resource="classpath:/md/utm/fi/model/dao/ProjectBean.xml" />
-	
+	<import resource="classpath:/md/utm/fi/model/dao/TicketBean.xml" />
 	
 </beans>

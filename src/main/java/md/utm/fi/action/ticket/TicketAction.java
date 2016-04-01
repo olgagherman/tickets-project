@@ -8,7 +8,9 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
+import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.dao.TicketDAO;
+import md.utm.fi.model.entity.Project;
 import md.utm.fi.model.entity.Ticket;
 
 public class TicketAction implements ModelDriven<Ticket> {
@@ -17,9 +19,13 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	private TicketDAO ticketDAO;
 
+	private ProjectDAO projectDAO;
+
 	private List<Ticket> ticketList;
 
 	private Integer ticketId;
+
+	private String nameProject;
 
 	public List<Ticket> getTicketList() {
 		return ticketList;
@@ -52,6 +58,17 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public String addTicket() throws Exception {
 		ticket.setCreatedDate(new Date());
 		ticketDAO.save(ticket);
+		System.out.println("next name: " + nameProject);
+		Project proj = projectDAO.findProject(nameProject);
+		projectDAO.refresh(proj);
+		List<Ticket> tickets = proj.getTickets();
+		tickets.add(ticket);
+		proj.setTickets(tickets);
+		projectDAO.saveOrUpdate(proj);
+
+		ticket.setProject(proj);
+		ticketDAO.saveOrUpdate(ticket);
+
 		if (ticket.getName() != null) {
 			return Action.SUCCESS;
 		}
@@ -59,6 +76,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	}
 
 	public String updateTicket() {
+
 		ticketDAO.saveOrUpdate(ticket);
 		return Action.SUCCESS;
 	}
@@ -89,5 +107,21 @@ public class TicketAction implements ModelDriven<Ticket> {
 			ticketList = new ArrayList<Ticket>();
 		}
 		return Action.SUCCESS;
+	}
+
+	public String getNameProject() {
+		return nameProject;
+	}
+
+	public void setNameProject(String nameProject) {
+		this.nameProject = nameProject;
+	}
+
+	public ProjectDAO getProjectDAO() {
+		return projectDAO;
+	}
+
+	public void setProjectDAO(ProjectDAO projectDAO) {
+		this.projectDAO = projectDAO;
 	}
 }

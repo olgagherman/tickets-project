@@ -2,10 +2,15 @@ package md.utm.fi.model.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,6 +22,7 @@ public class Ticket {
 	private String subject;
 	private Integer complexity;
 	private Date createdDate;
+	private Project project;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -59,6 +65,16 @@ public class Ticket {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "project_tickets", joinColumns = @JoinColumn(name = "ticket_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 }

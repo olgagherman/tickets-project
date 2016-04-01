@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -17,8 +16,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import md.utm.fi.model.dao.ProjectDAO;
+import md.utm.fi.model.dao.TicketDAO;
 import md.utm.fi.model.dao.UserDAO;
 import md.utm.fi.model.entity.Project;
+import md.utm.fi.model.entity.Ticket;
 import md.utm.fi.model.entity.User;
 
 @ContextConfiguration
@@ -32,7 +33,8 @@ public class UserDAOImplTest {
 	@Autowired
 	private ProjectDAO projectDao;
 	@Autowired
-	private SessionFactory sessionFactory;
+	private TicketDAO ticketDAO;
+
 	private User user;
 	private Project project;
 
@@ -79,7 +81,7 @@ public class UserDAOImplTest {
 		project.setUsers(users);
 		projectDao.saveOrUpdate(project);
 
-		Project project = projectDao.findProject(28);
+		Project project = projectDao.findProject(2);
 		projectDao.refresh(project);
 
 		// testable.deleteUser(5);
@@ -156,4 +158,42 @@ public class UserDAOImplTest {
 		int i = 4;
 	}
 
+	@Test
+	public void addProjTicket() {
+		List<Ticket> tickets = new ArrayList<Ticket>();
+		Project proj = new Project();
+		proj.setCreatedDate(new Date());
+		proj.setName("testname");
+		projectDao.save(proj);
+
+		Ticket ticket = new Ticket();
+		ticket.setName("T2");
+		ticket.setComplexity(3);
+		ticket.setCreatedDate(new Date());
+		ticket.setProject(proj);
+		ticketDAO.save(ticket);
+		tickets.add(ticket);
+
+		ticket = new Ticket();
+		ticket.setName("T2");
+		ticket.setComplexity(3);
+		ticket.setCreatedDate(new Date());
+		ticket.setProject(proj);
+		ticketDAO.save(ticket);
+		tickets.add(ticket);
+
+		// Project proj = projectDao.findProject(2);
+
+		// projectDao.refresh(proj);
+
+		/*
+		 * if (!proj.getTickets().isEmpty()) { tickets = proj.getTickets(); }
+		 */
+
+		proj.setTickets(tickets);
+		projectDao.saveOrUpdate(proj);
+		Project proj1 = projectDao.findProject(proj.getId());
+		projectDao.refresh(proj1);
+
+	}
 }

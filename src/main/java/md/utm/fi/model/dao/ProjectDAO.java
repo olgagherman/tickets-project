@@ -18,4 +18,6 @@ public interface ProjectDAO extends GenericDao {
 	public void deleteProjectUser(int id);
 
 	List<String> getAllProjectName();
+
+	public Project findProject(String name);
 }

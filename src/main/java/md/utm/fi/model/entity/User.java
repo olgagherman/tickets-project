@@ -3,6 +3,7 @@ package md.utm.fi.model.entity;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -76,7 +77,7 @@ public class User extends Person {
 		this.admin = admin;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
 	public List<Project> getProjects() {
 

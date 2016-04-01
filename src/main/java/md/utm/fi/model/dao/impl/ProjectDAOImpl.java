@@ -27,6 +27,16 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 		return get(Project.class, id);
 	}
 
+	public Project findProject(String name) {
+		// return get(Project.class, name);
+		List<Project> find = getHibernateTemplate().find("from Project a where name=?", name);
+		/*
+		 * if (find.isEmpty()) { throw new
+		 * ObjectsNotFoundException(Author.class, name, surname); }
+		 */
+		return find.iterator().next();
+	}
+
 	public void deleteProject(Integer id) {
 		delete(findProject(id));
 	}
