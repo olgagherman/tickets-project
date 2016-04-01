@@ -7,9 +7,9 @@
 <s:include value="../header.jsp" />
 
 <div style="float:left; width:100%; margin:10px 50px;">
-<!-- <a class="btn" style="float:left;"
+ <a class="btn" style="float:left;"
 	href=<s:url action="registerTicket"> 									</s:url>>
-		+ Add Ticket				</a> -->
+		+ Add Ticket				</a> 
 		</div>
 <br>
 

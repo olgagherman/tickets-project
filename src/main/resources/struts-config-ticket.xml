@@ -37,9 +37,9 @@
 			<result name="success" type="redirectAction">listTicketsAction</result>
 			<result name="error" type="redirectAction">listTicketsAction</result>
 		</action>
-		<action name="registerTicket">
+		<!-- <action name="registerTicket">
 			<result>ticket/createTicket.jsp</result>
-		</action>
+		</action> -->
 		
 		<action name="createTicketAction" class="ticketAction" method="addTicket">
 			<result name="success"  type="redirectAction">listTicketsAction</result>

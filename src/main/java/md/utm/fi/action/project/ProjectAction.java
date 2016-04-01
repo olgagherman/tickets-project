@@ -24,6 +24,16 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	private Integer projectId;
 
+	List<String> nameProjects;
+
+	public List<String> getNameProjects() {
+		return nameProjects;
+	}
+
+	public void setNameProjects(List<String> nameProjects) {
+		this.nameProjects = nameProjects;
+	}
+
 	public List<User> getUserList() {
 		return usersList;
 	}
@@ -137,4 +147,16 @@ public class ProjectAction implements ModelDriven<Project> {
 		}
 		return Action.SUCCESS;
 	}
+
+	public String populateDropDown() { //
+		nameProjects = projectDAO.getAllProjectName();
+
+		List<Project> projects = projectDAO.getAllProjects();
+		List<String> names = new ArrayList<String>();
+		for (Project next : projects) {
+			names.add(next.getName());
+		}
+		return Action.SUCCESS;
+	}
+
 }

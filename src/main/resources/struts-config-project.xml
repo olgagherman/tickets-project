@@ -55,5 +55,8 @@
 			<result name="success" type="redirectAction">getBodyProject</result>
 		</action>
 		
+		<action name="registerTicket" class="projectAction" method="populateDropDown"> 
+		<result name="success">ticket/createTicket.jsp</result>
+		 </action> 
 	</package>
 </struts>

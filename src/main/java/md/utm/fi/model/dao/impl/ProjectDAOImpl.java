@@ -1,5 +1,6 @@
 package md.utm.fi.model.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import md.utm.fi.model.dao.ProjectDAO;
@@ -32,6 +33,16 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 
 	public void deleteProjectUser(int id) {
 		// return getHibernateTemplate().delete().
+	}
+
+	public List<String> getAllProjectName() {
+		List<Project> projects = getAllProjects();
+		List<String> names = new ArrayList<String>();
+		for (Project next : projects) {
+			names.add(next.getName());
+		}
+		return names;
+
 	}
 
 }
