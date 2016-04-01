@@ -5,8 +5,17 @@
 
 
 <s:include value="../header.jsp" />
+
+<div style="float:left; width:100%; margin:10px 50px;">
+<!-- <a class="btn" style="float:left;"
+	href=<s:url action="registerTicket"> 									</s:url>>
+		+ Add Ticket				</a> -->
+		</div>
+<br>
+
 <s:if test="ticketList.size() > 0">
-	<table border="1px" cellpadding="8px">
+	<table class="zui-table zui-table-zebra zui-table-horizontal">
+		<thead>
 		<tr>
 	
 			<th>Name</th>
@@ -15,8 +24,10 @@
 			<th>Created Date</th>
 			<th>Edit</th>
 		</tr>
+		</thead>
+		<tbody>
 		<s:iterator value="ticketList" status="ticketStatus">
-			<tr>
+					<tr>
 				<td><s:property value="name" /></td>
 				<td><s:property value="subject" /></td>
 				<td><s:property value="complexity" /></td>
@@ -36,8 +47,9 @@
 				</a></td>
 			</tr>
 		</s:iterator>
+		</tbody>
 	</table>
 </s:if>
 <br/>
-<a href="registerTicket">ADD new Ticket</a>
-<s:include value="footer.jsp"/>
+
+<s:include value="../footer.jsp"/>

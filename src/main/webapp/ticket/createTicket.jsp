@@ -8,6 +8,13 @@
 	<s:textfield name="subject" label="Subject" value="%{subject}" />
 	<s:textfield name="createdDate" label="Created Date" value="%{createdDate}" />
 	<s:textfield name="complexity" label="Complexity" value="%{complexity}" />
+	
+	<%-- <s:select label="What's your favor search engine" 
+	headerKey="-1"
+		list="namesProcts" 
+		name="nameProject" /> --%>
+	
+	
 	<s:if test="%{id==null}">
 		<s:submit value="Create" action="createTicketAction" />
 	</s:if>
