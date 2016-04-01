@@ -6,7 +6,7 @@ body {
 	font: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #061C37;
-	background-color: #FCFBEF;
+	background-color: #ffffff;
 	background-image: url(../images/background.png);
 	background-repeat: repeat-x;
 }
@@ -27,7 +27,7 @@ body {
 	position: absolute;
 	text-align: right;
 	font-size: 30px;
-	color: #AB970C;
+	color: #ffffff;
 	left: 600px;
 	top: 220px;
 }
@@ -35,7 +35,7 @@ body {
 #mainpic h2 {
 	position: absolute;
 	text-align: right;
-	color: #776906;
+	color: #ffffff;
 	left: 600px;
 	top: 252px;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 #footer {
-	width: inherit;
+	width: 100%;
 	height: auto;
 }
 
@@ -128,4 +128,51 @@ html,body {
 
 p {
 	text-align: left;
+}
+
+.btn {
+	 width:200px;
+  background: #1f73ab;
+  background-image: -webkit-linear-gradient(top, #1f73ab, #1981c2);
+  background-image: -moz-linear-gradient(top, #1f73ab, #1981c2);
+  background-image: -ms-linear-gradient(top, #1f73ab, #1981c2);
+  background-image: -o-linear-gradient(top, #1f73ab, #1981c2);
+  background-image: linear-gradient(to bottom, #1f73ab, #1981c2);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 13px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+
+ul#bodyProj {
+    padding: 0;
+    list-style-type:none;
+ 
+}
+
+ul#bodyProj li {
+    display: inblock;
+    padding: 10px 10px;
+ 
+    
+}
+
+ul#bodyProj li a {
+    padding: 10px 20px;
+   
 }
