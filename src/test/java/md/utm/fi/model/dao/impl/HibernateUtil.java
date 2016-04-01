@@ -58,4 +58,9 @@ public class HibernateUtil {
 			System.out.println("");
 		}
 	}
+
+	public static SessionFactory getFactory() {
+		// TODO Auto-generated method stub
+		return getFactory();
+	}
 }

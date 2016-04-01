@@ -146,4 +146,14 @@ public class UserDAOImplTest {
 		Query query = session.createQuery("from user where Id > 10");
 		List results = query.list();
 	}
+
+	@Test
+	public void selectNamProjectTest() {
+		List<String> names = projectDao.getAllProjectName();
+		for (String next : names) {
+			System.out.println("next name: " + next);
+		}
+		int i = 4;
+	}
+
 }
