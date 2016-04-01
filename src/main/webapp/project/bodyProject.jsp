@@ -3,12 +3,13 @@
 
 
 
-
-<s:include value="../header.jsp" />
+ <s:include value="../header.jsp" />  
+		
 
 <link rel="stylesheet" type="text/css" href="css/project.css">
+
 	<br>
-		<div id="rcorners5">
+		<div id="bodyProject">
 			<div id="imag">
 				<a
 					href=<s:url action="getBodyProject">
@@ -18,7 +19,7 @@
 					src=<s:url value="/images/Project-word.jpg"/>>
 				</a>
 			</div>
-			<div id="#description">
+			<div id="description">
 				<font size="5" color="orange">Name : <s:property value="name" /></font>
 
 <br>
@@ -27,25 +28,42 @@
 			
 			<font size="4" color="orange">	Description :	<s:property value="description" /></font>
 			<br>
-				<div id="editProj">
-				<a
-					href=<s:url action="editProject">
-						<s:param name="projectId" value="%{id}" />
-					</s:url>>
-					<img alt="Edit" src=<s:url value="/images/edit-icon.png"/>>
-				</a> <a
-					href=<s:url action="removeProject">
-						<s:param name="projectId" value="%{id}" />
-					</s:url>>
-					<img alt="Remove" src=<s:url value="/images/delete-icon.png"/>>
-				</a>
-				</div>
-			</div>
 		</div>
+		<ul id="bodyProj" >
+		<li>
+ <a class="btn" 
+	href=<s:url action="#"> 									</s:url>>
+		View Users				</a>
+		</li>
+		<li>
+		<a class="btn" 
+	href=<s:url action="#"> 									</s:url>>
++ Add User				</a>
+		</li>
+		<li>
+			<a class="btn" 
+	href=<s:url action="editProject"> <s:param name="projectId" value="%{id}" /></s:url>>
+Edit 			</a>
+</li>
+				<li>
+				<a class="btn" 
+	href=<s:url action="removeProject"> <s:param name="projectId" value="%{id}" /></s:url>>
+Remove			</a>
+	
+			</li>
+			
+				</ul>
+			</div>
+			
+			
 
-<P>=======================================================================================</P>
+
+
+
+
+<br>
 <s:if test="userList.size() > 0">
-	<table border="1px" cellpadding="8px">
+	<table >
 		<tr>
 			<th>Name</th>
 			<th>Surname</th>
@@ -61,7 +79,8 @@
 				<td><s:property value="email" /></td>
 				<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 				<td><s:property value="admin" /></td>
-				<td><a
+				<td>
+				<a
 					href=<s:url action="editUser">
 						<s:param name="userId" value="%{id}" />
 					</s:url>>
@@ -79,5 +98,15 @@
 </s:if>
 
 
-<a href="registerProject">ADD new Project</a>
+
+
+
+
+
+
+
+
+
+
+
 <s:include value="../footer.jsp"/>

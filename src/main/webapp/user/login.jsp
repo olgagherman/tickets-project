@@ -5,7 +5,7 @@
 
 <s:form action="loginauth" theme="simple">
 	<center>
-		<table width="200">
+		<table >
 			<tr height="30">
 				<td width="200" colspan="2"><s:if test="hasActionErrors()">
 						<div class="errors">

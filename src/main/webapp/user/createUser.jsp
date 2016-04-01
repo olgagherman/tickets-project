@@ -5,7 +5,7 @@
 <h2>Register user</h2>
 <s:form>
 	<s:textfield name="name" label="Name" value="%{name}" />
-	<s:textfield name="surname" label="Surname" value="%{surname}" />
+		<s:textfield name="surname" label="Surname" value="%{surname}" />
 	<s:textfield name="email" label="Email" value="%{email}" />
 	<s:password name="password" label="Password" value="" />
 	<s:if test="%{id==null}">
