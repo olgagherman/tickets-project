@@ -25,29 +25,30 @@
 		<action name="board">
 			<result>ticket/board.jsp</result>
 		</action>
-<action name="listTicketsAction" class="ticketAction" method="listAllTickets">
+		<action name="listTicketsAction" class="ticketAction" method="listAllTickets">
 			<result name="success">ticket/viewTickets.jsp</result>
 		</action>
-	
-	<action name="editTicket" class="ticketAction" method="editTicket">
+
+		<action name="editTicket" class="ticketAction" method="editTicket">
 			<result name="success">ticket/createTicket.jsp</result>
 		</action>
-		
+
 		<action name="updateTicketAction" class="ticketAction" method="updateTicket">
 			<result name="success" type="redirectAction">listTicketsAction</result>
 			<result name="error" type="redirectAction">listTicketsAction</result>
 		</action>
-		<!-- <action name="registerTicket">
-			<result>ticket/createTicket.jsp</result>
-		</action> -->
-		
+		<!-- <action name="registerTicket"> <result>ticket/createTicket.jsp</result> 
+			</action> -->
+
 		<action name="createTicketAction" class="ticketAction" method="addTicket">
-			<result name="success"  type="redirectAction">listTicketsAction</result>
+			<result name="success" type="redirectAction">listTicketsAction</result>
 			<result name="error">ticket/createTicket.jsp</result>
 		</action>
-			<action name="removeTicket" class="ticketAction" method="removeTicket">
+		<action name="removeTicket" class="ticketAction" method="removeTicket">
 			<result name="success" type="redirectAction">listTicketAction</result>
 		</action>
-		
+<action name="registerTicket" class="ticketAction" method="populateDropDown">
+			<result name="success">ticket/createTicket.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -17,7 +17,7 @@
 		
 </head>
 
-<body>
+
 <p>
 	<font size="5" color="blue">Ticket System</font> <font size="4"
 		color="green" style="float: right"> 
@@ -46,11 +46,11 @@
  </li> -->
 	<s:if test="%{#session.logged == false}">
 		<li style="float: right"><a href="login">Login</a></li>
-	
+	</s:if>
 	<s:else>
 		<li style="float: right"><a href="logout">Logout</a></li>
 	</s:else>
-</s:if>
+
 </ul>
 </div>
 

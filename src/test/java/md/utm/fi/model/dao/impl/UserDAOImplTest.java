@@ -192,7 +192,7 @@ public class UserDAOImplTest {
 
 		proj.setTickets(tickets);
 		projectDao.saveOrUpdate(proj);
-		Project proj1 = projectDao.findProject(proj.getId());
+		Project proj1 = projectDao.findProject("testname");
 		projectDao.refresh(proj1);
 
 	}

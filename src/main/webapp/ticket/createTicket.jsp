@@ -19,7 +19,8 @@
 		<s:submit value="Create" action="createTicketAction" />
 	</s:if>
 	<s:else>
-		<s:submit value="Update" action="updateTicketAction"/>
+
+	<s:submit value="Update" action="updateTicketAction"/>
 	</s:else>
 </s:form>
 

@@ -27,6 +27,16 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	private String nameProject;
 
+	List<String> nameProjects;
+
+	public List<String> getNameProjects() {
+		return nameProjects;
+	}
+
+	public void setNameProjects(List<String> nameProjects) {
+		this.nameProjects = nameProjects;
+	}
+
 	public List<Ticket> getTicketList() {
 		return ticketList;
 	}
@@ -56,9 +66,11 @@ public class TicketAction implements ModelDriven<Ticket> {
 	}
 
 	public String addTicket() throws Exception {
+
+		// projectDAO = new ProjectDAOImpl();
 		ticket.setCreatedDate(new Date());
 		ticketDAO.save(ticket);
-		System.out.println("next name: " + nameProject);
+		System.out.println("name =====  " + nameProject);
 		Project proj = projectDAO.findProject(nameProject);
 		projectDAO.refresh(proj);
 		List<Ticket> tickets = proj.getTickets();
@@ -123,5 +135,16 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	public void setProjectDAO(ProjectDAO projectDAO) {
 		this.projectDAO = projectDAO;
+	}
+
+	public String populateDropDown() { //
+		nameProjects = projectDAO.getAllProjectName();
+
+		List<Project> projects = projectDAO.getAllProjects();
+		List<String> names = new ArrayList<String>();
+		for (Project next : projects) {
+			names.add(next.getName());
+		}
+		return Action.SUCCESS;
 	}
 }

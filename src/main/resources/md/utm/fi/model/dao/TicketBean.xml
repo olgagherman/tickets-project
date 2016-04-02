@@ -10,6 +10,7 @@
 	
 	<bean id="ticketAction" class="md.utm.fi.action.ticket.TicketAction">
 		<property name="ticketDAO" ref="ticketDAO" />	
+		<property name="projectDAO" ref="projectDAO" />	
 	</bean>
 
 </beans>

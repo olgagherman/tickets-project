@@ -22,41 +22,41 @@
 				exception="md.utm.fi.exception.ObjectsNotFoundException"></exception-mapping>
 		</global-exception-mappings>
 
-	
-<action name="listProjectsAction" class="projectAction" method="listAllProjects">
+
+		<action name="listProjectsAction" class="projectAction" method="listAllProjects">
 			<result name="success">project/viewProjects.jsp</result>
 		</action>
-	
-	<action name="editProject" class="projectAction" method="editProject">
+
+		<action name="editProject" class="projectAction" method="editProject">
 			<result name="success">project/createProject.jsp</result>
 		</action>
-		
-		<action name="updateProjectAction" class="projectAction" method="updateProject">
+
+		<action name="updateProjectAction" class="projectAction"
+			method="updateProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 			<result name="error" type="redirectAction">listProjectsAction</result>
 		</action>
 		<action name="registerProject">
 			<result>project/createProject.jsp</result>
 		</action>
-		
-		<action name="createProjectAction" class="projectAction" method="addProject">
-			<result name="success"  type="redirectAction">listProjectsAction</result>
+
+		<action name="createProjectAction" class="projectAction"
+			method="addProject">
+			<result name="success" type="redirectAction">listProjectsAction</result>
 			<result name="error">project/createProject.jsp</result>
 		</action>
-			<action name="removeProject" class="projectAction" method="removeProject">
+		<action name="removeProject" class="projectAction" method="removeProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 		</action>
 		<action name="getBodyProject" class="projectAction" method="getBodyProject">
 			<result name="success">project/bodyProject.jsp</result>
 		</action>
-		
-	
-			<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
+
+
+		<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
 			<result name="success" type="redirectAction">getBodyProject</result>
 		</action>
+
 		
-		<action name="registerTicket" class="projectAction" method="populateDropDown"> 
-		<result name="success">ticket/createTicket.jsp</result>
-		 </action> 
 	</package>
 </struts>
