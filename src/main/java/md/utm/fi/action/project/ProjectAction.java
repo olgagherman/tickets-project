@@ -61,6 +61,7 @@ public class ProjectAction implements ModelDriven<Project> {
 	}
 
 	public String getBodyProject() {
+
 		project = projectDAO.findProject(projectId);
 		listAllProjectUsers();
 		if (project == null) {
