@@ -1,42 +1,54 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<!--<s:include value="../header.jsp" />-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/css-bootstrap">
+<script src="<s:url value="https://code.jquery.com/jquery-1.12.0.min.js" />"></script>
+<script src="<s:url value="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"/>"></script>
+<script src="<s:url value="js/jquery.js" />"></script>
 
-
-<s:form action="loginauth" theme="simple">
-	<center>
-		<table >
-			<tr height="30">
-				<td width="200" colspan="2"><s:if test="hasActionErrors()">
-						<div class="errors">
-							<s:actionerror />
-						</div>
-					</s:if> <s:property value="exception" /></td>
-
-			</tr>
-			<tr>
-				<td colspan="2" width="200" align="left" style="background: #eee">Login
-					Here</td>
-			</tr>
-			<tr>
-				<td align="left">Email:</td>
-				<td align="left"><s:textfield name="email" /></td>
-			</tr>
-			<tr>
-				<td align="left">Password:</td>
-				<td align="left"><s:password type="text" name="password" /></td>
-			</tr>
-			<tr>
-				<td align="left"></td>
-				<td align="left"><input type="submit" name="login"
-					value="Login"></td>
-			</tr>
-			<tr>
-				<td align="left" colspan="2"><a href="register">Register
-						new user</a></td>
-			</tr>
-		</table>
-	</center>
-</s:form>
-
-<s:include value="../footer.jsp" />
+<div class="text-center" style="padding: 100px 0">
+	<div class="logo">login</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<s:form id="login-form" class="text-left" action="loginauth"
+			theme="simple" method="post">
+			<div class="login-form-main-message">
+				<s:if test="hasActionErrors()">
+					<div class="errors">
+						<s:actionerror />
+					</div>
+				</s:if>
+				<s:property value="exception" />
+			</div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="lg_username" class="sr-only"></label>
+						<s:textfield type="text" class="form-control" id="lg_username"
+							name="email" placeholder="username" />
+					</div>
+					<div class="form-group">
+						<label for="lg_password" class="sr-only"></label>
+						<s:password type="password" class="form-control" id="lg_password"
+							name="password" placeholder="password" />
+					</div>
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" id="lg_remember" name="lg_remember">
+						<label for="lg_remember">remember</label>
+					</div>
+				</div>
+				<button type="submit" class="login-button" name="login">
+					<i class="fa fa-chevron-right"></i>
+				</button>
+			</div>
+			<div class="etc-login-form">
+				<p>
+					new user? <a href="register">create new account</a>
+				</p>
+			</div>
+		</s:form>
+	</div>
+	<!-- end:Main Form -->
+</div>
