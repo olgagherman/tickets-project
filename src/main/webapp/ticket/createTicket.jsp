@@ -6,7 +6,6 @@
 <s:form>
 	<s:textfield name="name" label="Name" value="%{name}" />
 	<s:textfield name="subject" label="Subject" value="%{subject}" />
-	<s:textfield name="createdDate" label="Created Date" value="%{createdDate}" />
 	<s:textfield name="complexity" label="Complexity" value="%{complexity}" />
 	
  <s:select style="width:173px;height:30px;" label="Select name of Project" 

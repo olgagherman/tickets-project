@@ -6,6 +6,8 @@
 <struts>
 	<package name="user" namespace="/" extends="struts-default">
 		<interceptors>
+		<interceptor name="security"
+				class="md.utm.fi.security.SecurityInterceptor"></interceptor>
 			<interceptor-stack name="appDefaultStack">
 				<interceptor-ref name="defaultStack">
 					<param name="exception.logEnabled">true</param>

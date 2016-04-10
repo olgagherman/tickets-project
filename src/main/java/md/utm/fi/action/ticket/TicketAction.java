@@ -80,7 +80,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 		ticket.setProject(proj);
 		ticketDAO.saveOrUpdate(ticket);
-
+         
 		if (ticket.getName() != null) {
 			return Action.SUCCESS;
 		}
