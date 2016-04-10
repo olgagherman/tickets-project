@@ -3,17 +3,19 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	font: Arial, Helvetica, sans-serif;
+	font-family: "Varela Round" !important;
 	font-size: 14px;
 	color: #061C37;
-	background-color: #ffffff;
-	background-image: url(../images/background.png);
-	background-repeat: repeat-x;
+	background-color: #EFEFEF !important;
 }
 
 * {
 	margin: 0 auto 0 auto;
 	text-align: left;
+}
+
+.margin-top-menu{
+	margin-top: 108px;
 }
 
 #container {
@@ -70,22 +72,17 @@ body {
 }
 
 #footer {
-	width: 100%;
-	height: auto;
+	bottom: 0;
+    height: 50px;
+    position: fixed;
+    width: 100%;
 }
 
-#footer h3 a,#footer h3 a:visited {
-	display: inline;
-	text-align: center;
-	font-size: 12px;
-	text-decoration: none;
-	color: #F5EB67;
-}
-
-a,a:visited {
-	color: #E4CA10;
-	text-decoration: none;
-	font-weight: bold;
+#footer p{
+	color: grey;
+    font-size: 16px;
+    margin: 15px 0;
+    text-align: center;
 }
 
 #menu ul {

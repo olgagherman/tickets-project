@@ -27,13 +27,9 @@ body {
 }
 /*=== 2. Anchor Link ===*/
 a {
-  color: #aaaaaa;
-  transition: all ease-in-out 200ms;
+  text-decoration: underline !important;
 }
-a:hover {
-  color: #333333;
-  text-decoration: none;
-}
+
 /*=== 3. Text Outside the Box ===*/
 .etc-login-form {
   color: #919191;

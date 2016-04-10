@@ -7,47 +7,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<link rel="stylesheet" type="text/css" href="css/css-bootstrap/bootstrap.min.css">
 			<link rel="stylesheet" type="text/css" href="css/style.css">
 				<link rel="stylesheet" type="text/css" href="css/login.css">
 					<link rel="stylesheet" type="text/css" href="css/header.css">
 						<link rel="stylesheet" type="text/css" href="css/styleTable.css">
+							
 							<title>Ticket</title>
 </head>
-
-
-<p>
-	<font size="5" color="blue">Ticket System</font> <font size="4"
-		color="green" style="float: right"> <s:if
-			test="%{#session.logged ==true}">
-		Welcome <i>${sessionScope.userName}</i>
-		</s:if>
-	</font>
-</p>
-
-
-<div id="head">
-	<ul>
-		<li><a class="activeH" href="board">Board</a></li>
-		<li><a href="listTicketsAction">Tickets</a></li>
-		<li><a href="listUsersAction">Users</a></li>
-		<li><a href="listProjectsAction">Projects</a></li>
-
-		<!--  <li>
- 
- <a 	href=<s:url action="getBodyProject">
-<s:param name="projectId" value="%{1}" />
-</s:url>>
-	Project
-				</a>
- 
- </li> -->
-		<s:if test="%{#session.logged == false}">
-			<li style="float: right"><a href="login">Login</a></li>
-		</s:if>
-		<s:else>
-			<li style="float: right"><a href="logout">Logout</a></li>
-		</s:else>
-	</ul>
+<div id="header" class="navbar navbar-fixed-top">
+	<div class="row" style="font-size: 17px; color: blue;">
+		<div id="ticket-system" class="col-md-10">Ticket System</div>
+		<div class="col-md-2 text-center">
+			<s:if test="%{#session.logged == null}">
+				<a href="login">Login</a>
+			</s:if>
+			<s:if test="%{#session.logged == true}">
+				<a href="logout">Logout <i>${sessionScope.userName}</i></a>
+			</s:if>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container-fluid">
+			<ul>
+				<li><a class="activeH" href="board">Board</a></li>
+				<li><a href="listTicketsAction">Tickets</a></li>
+				<li><a href="listUsersAction">Users</a></li>
+				<li><a href="listProjectsAction">Projects</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
-

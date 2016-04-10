@@ -1,9 +1,5 @@
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
-
-
-
 <s:include value="../header.jsp" />
 
 <link rel="stylesheet" type="text/css" href="css/stylesTree.css">
@@ -78,4 +74,4 @@
 		</li>
 	</ol>
 	</div>
-<s:include value="footer.jsp"/>
+<s:include value="../footer.jsp"/>

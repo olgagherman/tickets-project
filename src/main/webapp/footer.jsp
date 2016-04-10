@@ -1,9 +1,7 @@
 </body>
-	<div id="footer">
-				<h3>
-					FOOTER :)
-				</h3>
-			</div>
-	
-
+<div id="footer">
+	<div>
+		<p>Copyright &copy; FI-131 2016</p>
+	</div>
+</div>
 </html>
