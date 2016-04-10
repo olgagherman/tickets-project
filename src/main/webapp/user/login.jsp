@@ -1,11 +1,17 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/css-bootstrap">
-<script src="<s:url value="https://code.jquery.com/jquery-1.12.0.min.js" />"></script>
-<script src="<s:url value="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"/>"></script>
+<script
+	src="<s:url value="https://code.jquery.com/jquery-1.12.0.min.js" />"></script>
+<script
+	src="<s:url value="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"/>"></script>
 <script src="<s:url value="js/jquery.js" />"></script>
 
 <div class="text-center" style="padding: 100px 0">
@@ -23,7 +29,7 @@
 				<s:property value="exception" />
 			</div>
 			<div class="main-login-form">
-				<div class="login-group">
+				<div class="login-group text-left">
 					<div class="form-group">
 						<label for="lg_username" class="sr-only"></label>
 						<s:textfield type="text" class="form-control" id="lg_username"
