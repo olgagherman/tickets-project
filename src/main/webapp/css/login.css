@@ -14,12 +14,16 @@
     text-align: center;
 }
 
+.text-left {
+    text-align: left;
+}
+
 html,
 body {
   background: #efefef;
   padding: 0px;
   margin: 0px;
-  font-family: 'Varela Round';
+  font-family: 'Varela Round' !important;
 }
 /*=== 2. Anchor Link ===*/
 a {
@@ -39,6 +43,21 @@ a:hover {
   margin-bottom: 5px;
 }
 /*=== 4. Main Form ===*/
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
 .login-form-1 {
   max-width: 300px;
   border-radius: 5px;
@@ -102,7 +121,7 @@ a:hover {
 }
 
 [type="checkbox"]:not(:checked) + label::after, [type="checkbox"]:checked + label::after {
-    /*content: "✔";*/
+    content: "✔";
     font-size: 14px;
     left: 2px;
     top: 0;
