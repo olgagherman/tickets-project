@@ -50,5 +50,11 @@
 <action name="registerTicket" class="ticketAction" method="populateDropDown">
 			<result name="success">ticket/createTicket.jsp</result>
 		</action>
+		
+		<action name="getBodyTicket" class="ticketAction" method="getBodyTicket">
+			<result name="success">ticket/bodyTicket.jsp</result>
+		</action>
+		
+		
 	</package>
 </struts>

@@ -26,7 +26,13 @@
 			<tbody>
 				<s:iterator value="ticketList" status="ticketStatus">
 					<tr>
-						<td><s:property value="name" /></td>
+						<td>
+						
+						<a
+							href=<s:url action="getBodyTicket">
+						<s:param name="ticketId" value="%{id}" /></s:url>>
+								<s:property value="name" />
+						</a></td>
 						<td><s:property value="subject" /></td>
 						<td><s:property value="complexity" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>

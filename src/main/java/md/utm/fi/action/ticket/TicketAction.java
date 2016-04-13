@@ -80,7 +80,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 		ticket.setProject(proj);
 		ticketDAO.saveOrUpdate(ticket);
-         
+
 		if (ticket.getName() != null) {
 			return Action.SUCCESS;
 		}
@@ -144,6 +144,16 @@ public class TicketAction implements ModelDriven<Ticket> {
 		List<String> names = new ArrayList<String>();
 		for (Project next : projects) {
 			names.add(next.getName());
+		}
+		return Action.SUCCESS;
+	}
+
+	public String getBodyTicket() {
+
+		ticket = ticketDAO.findTicket(ticketId);
+
+		if (ticket == null) {
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
