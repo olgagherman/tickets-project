@@ -24,6 +24,8 @@
 					name="createdDate" format="dd/MM/yyyy" /></font> <br> <font size="4"
 				color="orange"> Description : <s:property value="description" /></font>
 			<br>
+					<font size="5" color="orange">Proj name : <s:property value="nameProject" /></font>
+			<br>
 		</div>
 		<ul id="bodyProj">
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>

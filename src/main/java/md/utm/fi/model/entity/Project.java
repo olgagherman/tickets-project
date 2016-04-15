@@ -51,7 +51,7 @@ public class Project {
 		this.createdDate = createdDate;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "project_id") , inverseJoinColumns = @JoinColumn(name = "user_id") )
 	public List<User> getUsers() {
 		return users;

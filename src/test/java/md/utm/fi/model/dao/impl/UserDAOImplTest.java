@@ -196,4 +196,16 @@ public class UserDAOImplTest {
 		projectDao.refresh(proj1);
 
 	}
+
+	@Test
+	public void nameTicket() {
+		Ticket ticket = ticketDAO.findTicket(3);
+		ticketDAO.refresh(ticket);
+
+		Project pro = projectDao.findProject(1);
+		projectDao.refresh(pro);
+
+		// String nameProject = ticket.getProject().getName();
+	}
+
 }
