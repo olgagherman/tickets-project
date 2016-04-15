@@ -37,7 +37,15 @@ public class UserDAOImplTest {
 
 	private User user;
 	private Project project;
-
+	
+	@Test
+	public void listUsers(){
+		List<User> users = new ArrayList<User>();
+		users=testable.getAllUsers();
+		for(User user :users){
+			System.out.println(user.getName());
+		}
+	}
 	@Test
 	// @Transactional
 	public void testCreateUser() {
@@ -51,6 +59,8 @@ public class UserDAOImplTest {
 		project.setDescription("Adaugat de test");
 		projectDao.save(project);
 		user = new User();
+		
+		
 
 		List<User> users = new ArrayList<User>();
 		List<Project> projects = new ArrayList<Project>();

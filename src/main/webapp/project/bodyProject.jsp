@@ -24,7 +24,7 @@
 		<ul id="bodyProj">
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
 					View Users </a></li>
-			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
+			<li><a class="btn" href=<s:url action="viewUsers"> 									</s:url>>
 					+ Add User </a></li>
 			<li><a class="btn"
 				href=<s:url action="editProject"> <s:param name="projectId" value="%{id}" /></s:url>>

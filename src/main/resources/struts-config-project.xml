@@ -56,6 +56,13 @@
 		<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
 			<result name="success" type="redirectAction">getBodyProject</result>
 		</action>
+		
+		<action name="viewUsers" class="md.utm.fi.action.user.CrudUserAction"  method="listAllUsers">
+			<result name="success">project/projectAssignUser.jsp</result>
+		</action>
+		
+		
+		
 
 		
 	</package>
