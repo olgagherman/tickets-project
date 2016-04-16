@@ -3,19 +3,28 @@ package md.utm.fi.model.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.entity.Project;
 import md.utm.fi.model.entity.User;
 
 @SuppressWarnings("unchecked")
 public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<User> retrieveAllProjectUser(Project project) {
-		/*
-		 * String value =
-		 * "from  User user0_ left outer join userAssignProject project1_ on user0_.id=project1_.user_id left outer join Project project2_ on project1_.project_id=project2_.id  where project2_.id=?"
-		 * ; return getHibernateTemplate().find(value, id.getId());
-		 */
-		refresh(project);
+
+		// String value = "from User user0_ left outer join userAssignProject
+		// project1_ on user0_.id=project1_.user_id left outer join Project
+		// project2_ on project1_.project_id=project2_.id where project2_.id=?";
+		// getHibernateTemplate().find(value, project.getId());
+
+		// refresh(project);
+
+		project = findProject(project.getId());
+		project.getUsers().isEmpty();
 		return project.getUsers();
 	}
 
