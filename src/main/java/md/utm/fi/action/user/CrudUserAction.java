@@ -53,6 +53,7 @@ public class CrudUserAction implements ModelDriven<User> {
 		user.setCreatedDate(new Date());
 		userDAO.save(user);
 		if (user.getName() != null) {
+			user = new User();
 			return Action.SUCCESS;
 		}
 		return Action.ERROR;

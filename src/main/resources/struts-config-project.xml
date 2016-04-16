@@ -62,7 +62,9 @@
 		</action>
 		
 		
-		
+		<action name="asignUsers" class="projectAction" method="check">
+			<result name="success" type="redirectAction">project/projectAssignUser.jsp</result>
+		</action>
 
 		
 	</package>

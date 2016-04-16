@@ -82,6 +82,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 		ticketDAO.saveOrUpdate(ticket);
 
 		if (ticket.getName() != null) {
+			ticket = new Ticket();
 			return Action.SUCCESS;
 		}
 		return Action.ERROR;

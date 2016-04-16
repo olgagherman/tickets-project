@@ -22,13 +22,20 @@
 						<td><s:property value="surname" /></td>
 						<td><s:property value="email" /></td>
 						<td>
-							<input type="checkbox"  checked="checked" id="<s:property value="id"/>"/>
+						
+							<input type="checkbox" name="%{id}" Value="<s:property value="id"/>"  id="<s:property value="id"/>"/>
 							<label for="<s:property value="id"/>">choose</label></td>
                       </tr>
 				</s:iterator>
 			</tbody>
 		</table>
+		
+		
 	</s:if>
+	<s:checkbox name="a" fieldValue="ORIGINATOR" value="1" label="A"/>
+            <s:checkbox name="a" fieldValue="EVALUATOR" value="2" label="B"/>
+            <s:checkbox name="a" fieldValue="EXECUTOR" value="3" label="C"/>
+	<a href="asignUsers">ASSIGN</a>
 </div>
 
 

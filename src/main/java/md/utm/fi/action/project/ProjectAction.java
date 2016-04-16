@@ -24,6 +24,17 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	private Integer projectId;
 
+	private String[] selectedItems;
+	private String[] a;
+
+	public String[] getSelectedItems() {
+		return selectedItems;
+	}
+
+	public void setSelectedItems(String[] selectedItems) {
+		this.selectedItems = selectedItems;
+	}
+
 	public List<User> getUserList() {
 		return usersList;
 	}
@@ -78,6 +89,7 @@ public class ProjectAction implements ModelDriven<Project> {
 		project.setCreatedDate(new Date());
 		projectDAO.save(project);
 		if (project.getName() != null) {
+			project = new Project();
 			return Action.SUCCESS;
 		}
 		return Action.ERROR;
@@ -137,6 +149,22 @@ public class ProjectAction implements ModelDriven<Project> {
 			usersList = new ArrayList<User>();
 		}
 		return Action.SUCCESS;
+	}
+
+	public String check() {
+
+		for (String s : selectedItems) {
+			System.out.println(s);
+		}
+		return Action.SUCCESS;
+	}
+
+	public String[] getA() {
+		return a;
+	}
+
+	public void setA(String[] a) {
+		this.a = a;
 	}
 
 }
