@@ -3,6 +3,9 @@ package md.utm.fi.model.dao.impl;
 import java.awt.print.Book;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import md.utm.fi.model.dao.TicketDAO;
 import md.utm.fi.model.entity.Ticket;
 
@@ -16,8 +19,11 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 		return getHibernateTemplate().find("from Ticket order by id desc");
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Ticket findTicket(Integer id) {
-		return get(Ticket.class, id);
+		Ticket ticket = get(Ticket.class, id);
+		ticket.getProject().getName();
+		return ticket;
 	}
 
 	public void deleteTicket(Integer id) {

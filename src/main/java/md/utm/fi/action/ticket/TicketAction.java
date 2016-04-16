@@ -150,11 +150,9 @@ public class TicketAction implements ModelDriven<Ticket> {
 	}
 
 	public String getBodyTicket() {
-		int i = 1;
 		ticket = ticketDAO.findTicket(ticketId);
-		ticketDAO.refresh(ticket);
 
-		// nameProject = ticket.getProject().getName();
+		nameProject = ticket.getProject().getName();
 		if (ticket == null) {
 			return Action.ERROR;
 		}
