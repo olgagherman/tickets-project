@@ -21,12 +21,22 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	private Integer userId;
 
+	private Integer projectId;
+
 	public List<User> getUserList() {
 		return userList;
 	}
 
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
+	}
+
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
+	}
+
+	public Integer getProjectId() {
+		return projectId;
 	}
 
 	public User getModel() {
@@ -85,7 +95,7 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	// list all users
 	public String listAllUsers() {
-		userList = userDAO.getAllUsers();
+		userList = userDAO.getUsersNotWithTheProject(projectId);
 		if (userList == null) {
 			userList = new ArrayList<User>();
 		}

@@ -1,7 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="form" uri="/struts-tags"%>
 <s:include value="../header.jsp" />
+<link rel="stylesheet" type="text/css" href="css/project.css">
 <div class="container-fluid margin-top-menu">
-	<link rel="stylesheet" type="text/css" href="css/project.css">
 	<br>
 	<div id="bodyObject">
 		<div id="imag">
@@ -24,7 +25,8 @@
 		<ul id="bodyProj">
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
 					View Users </a></li>
-			<li><a class="btn" href=<s:url action="viewUsers"> 									</s:url>>
+			<li><a class="btn"
+				href=<s:url action="viewUsers" > <s:param name="projectId" value="%{id}" />	</s:url>>
 					+ Add User </a></li>
 			<li><a class="btn"
 				href=<s:url action="editProject"> <s:param name="projectId" value="%{id}" /></s:url>>

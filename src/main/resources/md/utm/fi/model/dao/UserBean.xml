@@ -3,13 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
- 
- 	<bean id="userDAO"	class="md.utm.fi.model.dao.impl.UserDAOImpl">
+
+	<bean id="userDAO" class="md.utm.fi.model.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<bean id="userAction" class="md.utm.fi.action.user.CrudUserAction">
-		<property name="userDAO" ref="userDAO" />	
-	</bean>
 
+	<bean id="userAction" class="md.utm.fi.action.user.CrudUserAction">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="addUserToProjectAction" class="md.utm.fi.action.user.AddUserToTheProject">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
 </beans>

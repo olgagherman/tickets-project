@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-   "http://struts.apache.org/dtds/struts-2.0.dtd">
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
 	<package name="user" namespace="/" extends="struts-default">
 		<interceptors>
-		<interceptor name="security"
+			<interceptor name="security"
 				class="md.utm.fi.security.SecurityInterceptor"></interceptor>
 			<interceptor-stack name="appDefaultStack">
 				<interceptor-ref name="defaultStack">
@@ -67,6 +67,16 @@
 		<action name="removeUser" class="userAction" method="removeUser">
 			<result name="success" type="redirectAction">listUsersAction</result>
 		</action>
+		
+		<action name="viewUsers" class="userAction" method="listAllUsers">
+			<result name="success">project/projectAssignUser.jsp</result>
+		</action>
+
+		<action name="addUserToTheProject" class="md.utm.fi.action.user.AddUserToTheProject"
+			method="addUsersToTheProject">
+			<result name="success" type="redirectAction">getBodyProject</result>
+		</action>
+
 
 	</package>
 </struts>
