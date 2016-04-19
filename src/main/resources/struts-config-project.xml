@@ -23,15 +23,15 @@
 		</global-exception-mappings>
 
 
-		<action name="listProjectsAction" class="projectAction" method="listAllProjects">
+		<action name="listProjectsAction" class="md.utm.fi.action.project.ProjectAction" method="listAllProjects">
 			<result name="success">project/viewProjects.jsp</result>
 		</action>
 
-		<action name="editProject" class="projectAction" method="editProject">
+		<action name="editProject" class="md.utm.fi.action.project.ProjectAction" method="editProject">
 			<result name="success">project/createProject.jsp</result>
 		</action>
 
-		<action name="updateProjectAction" class="projectAction"
+		<action name="updateProjectAction" class="md.utm.fi.action.project.ProjectAction"
 			method="updateProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 			<result name="error" type="redirectAction">listProjectsAction</result>
@@ -40,22 +40,29 @@
 			<result>project/createProject.jsp</result>
 		</action>
 
-		<action name="createProjectAction" class="projectAction"
+		<action name="createProjectAction" class="md.utm.fi.action.project.ProjectAction"
 			method="addProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 			<result name="error">project/createProject.jsp</result>
 		</action>
-		<action name="removeProject" class="projectAction" method="removeProject">
+		<action name="removeProject" class="md.utm.fi.action.project.ProjectAction"
+			method="removeProject">
 			<result name="success" type="redirectAction">listProjectsAction</result>
 		</action>
-		<action name="getBodyProject" class="projectAction" method="getBodyProject">
+
+		<action name="getBodyProject" class="md.utm.fi.action.project.ProjectViewerAction"
+			method="getBodyProject">
 			<result name="success">project/bodyProject.jsp</result>
 		</action>
 
 
-		<action name="removeProjectUser" class="projectAction" method="removeProjectUser">
-			<result name="success" type="redirectAction">getBodyProject</result>
+		<action name="removeProjectUser" class="md.utm.fi.action.project.ProjectAction"
+			method="removeProjectUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getBodyProject</param>
+				<param name="projectId">${projectId}</param>
+			</result>
 		</action>
-		
+
 	</package>
 </struts>

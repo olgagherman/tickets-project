@@ -95,7 +95,23 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	// list all users
 	public String listAllUsers() {
+		userList = userDAO.getAllUsers();
+		if (userList == null) {
+			userList = new ArrayList<User>();
+		}
+		return Action.SUCCESS;
+	}
+
+	public String listAllUsersNotBoundToProject() {
 		userList = userDAO.getUsersNotWithTheProject(projectId);
+		if (userList == null) {
+			userList = new ArrayList<User>();
+		}
+		return Action.SUCCESS;
+	}
+
+	public String listAllProjectUsers() {
+		userList = userDAO.getUsersForProject(projectId);
 		if (userList == null) {
 			userList = new ArrayList<User>();
 		}

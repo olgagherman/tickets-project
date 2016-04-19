@@ -8,7 +8,7 @@
 	<s:if test="userList.size() > 0">
 		<s:form action="addUserToTheProject">
 			<s:hidden value="%{projectId}" name="projectId" />
-			<s:checkboxlist list="userList" listKey="id" listValue="name"
+			<s:checkboxlist list="userList" listKey="id" listValue="%{name +' '+ surname}"
 				name="selectedUsers"/>
 			<s:submit value="Add users to the project"/>
 		</s:form>

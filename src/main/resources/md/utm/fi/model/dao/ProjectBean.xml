@@ -8,8 +8,4 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="projectAction" class="md.utm.fi.action.project.ProjectAction">
-		<property name="projectDAO" ref="projectDAO" />	
-	</bean>
-
 </beans>

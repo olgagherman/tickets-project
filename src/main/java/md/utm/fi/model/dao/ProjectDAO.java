@@ -15,7 +15,7 @@ public interface ProjectDAO extends GenericDao {
 
 	List<User> retrieveAllProjectUser(Project id);
 
-	public void deleteProjectUser(int id);
+	public void deleteProjectUser(Integer projectId, Integer userId);
 
 	List<String> getAllProjectName();
 

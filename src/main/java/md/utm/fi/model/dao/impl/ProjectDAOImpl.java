@@ -1,6 +1,7 @@
 package md.utm.fi.model.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Propagation;
@@ -50,8 +51,19 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 		delete(findProject(id));
 	}
 
-	public void deleteProjectUser(int id) {
-		// return getHibernateTemplate().delete().
+	// TODO rewrite this method in order to use HQL
+	@Transactional
+	public void deleteProjectUser(Integer projectId, Integer userId) {
+		Project project = findProject(projectId);
+		Iterator<User> iterator = project.getUsers().iterator();
+		while (iterator.hasNext()) {
+			User user = iterator.next();
+			if (user.getId() == userId) {
+				iterator.remove();
+				break;
+			}
+		}
+		saveOrUpdate(project);
 	}
 
 	public List<String> getAllProjectName() {

@@ -8,11 +8,4 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="userAction" class="md.utm.fi.action.user.CrudUserAction">
-		<property name="userDAO" ref="userDAO" />
-	</bean>
-	
-	<bean id="addUserToProjectAction" class="md.utm.fi.action.user.AddUserToTheProject">
-		<property name="userDAO" ref="userDAO" />
-	</bean>
 </beans>

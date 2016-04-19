@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.entity.Project;
-import md.utm.fi.model.entity.User;
 
 public class ProjectAction implements ModelDriven<Project> {
 
@@ -20,27 +19,16 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	private List<Project> projectList;
 
-	private List<User> usersList;
-
 	private Integer projectId;
 
-	private String[] selectedItems;
-	private String[] a;
+	private Integer userId;
 
-	public String[] getSelectedItems() {
-		return selectedItems;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public void setSelectedItems(String[] selectedItems) {
-		this.selectedItems = selectedItems;
-	}
-
-	public List<User> getUserList() {
-		return usersList;
-	}
-
-	public void setUserList(List<User> userList) {
-		this.usersList = userList;
+	public Integer getUserId() {
+		return userId;
 	}
 
 	public List<Project> getProjectList() {
@@ -69,16 +57,6 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
-	}
-
-	public String getBodyProject() {
-
-		project = projectDAO.findProject(projectId);
-		listAllProjectUsers();
-		if (project == null) {
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
 	}
 
 	public void setProject(Project project) {
@@ -121,7 +99,7 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	public String removeProjectUser() {
 		if (projectId != null) {
-			projectDAO.deleteProjectUser(projectId);
+			projectDAO.deleteProjectUser(projectId, userId);
 		}
 		return Action.SUCCESS;
 	}
@@ -133,38 +111,6 @@ public class ProjectAction implements ModelDriven<Project> {
 			projectList = new ArrayList<Project>();
 		}
 		return Action.SUCCESS;
-	}
-
-	public String addUserToProject() {
-		projectList = projectDAO.getAllProjects();
-		if (projectList == null) {
-			projectList = new ArrayList<Project>();
-		}
-		return Action.SUCCESS;
-	}
-
-	public String listAllProjectUsers() {
-		usersList = projectDAO.retrieveAllProjectUser(projectDAO.findProject(projectId));
-		if (usersList == null) {
-			usersList = new ArrayList<User>();
-		}
-		return Action.SUCCESS;
-	}
-
-	public String check() {
-
-		for (String s : selectedItems) {
-			System.out.println(s);
-		}
-		return Action.SUCCESS;
-	}
-
-	public String[] getA() {
-		return a;
-	}
-
-	public void setA(String[] a) {
-		this.a = a;
 	}
 
 }

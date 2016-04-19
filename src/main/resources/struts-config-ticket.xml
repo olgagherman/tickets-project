@@ -25,36 +25,44 @@
 		<action name="board">
 			<result>ticket/board.jsp</result>
 		</action>
-		<action name="listTicketsAction" class="ticketAction" method="listAllTickets">
+		<action name="listTicketsAction" class="md.utm.fi.action.ticket.TicketAction"
+			method="listAllTickets">
 			<result name="success">ticket/viewTickets.jsp</result>
 		</action>
 
-		<action name="editTicket" class="ticketAction" method="editTicket">
+		<action name="editTicket" class="md.utm.fi.action.ticket.TicketAction"
+			method="editTicket">
 			<result name="success">ticket/createTicket.jsp</result>
 		</action>
 
-		<action name="updateTicketAction" class="ticketAction" method="updateTicket">
+		<action name="updateTicketAction" class="md.utm.fi.action.ticket.TicketAction"
+			method="updateTicket">
 			<result name="success" type="redirectAction">listTicketsAction</result>
 			<result name="error" type="redirectAction">listTicketsAction</result>
 		</action>
 		<!-- <action name="registerTicket"> <result>ticket/createTicket.jsp</result> 
 			</action> -->
 
-		<action name="createTicketAction" class="ticketAction" method="addTicket">
+		<action name="createTicketAction" class="md.utm.fi.action.ticket.TicketAction"
+			method="addTicket">
 			<result name="success" type="redirectAction">listTicketsAction</result>
 			<result name="error">ticket/createTicket.jsp</result>
 		</action>
-		<action name="removeTicket" class="ticketAction" method="removeTicket">
+		<action name="removeTicket" class="md.utm.fi.action.ticket.TicketAction"
+			method="removeTicket">
 			<result name="success" type="redirectAction">listTicketAction</result>
 		</action>
-<action name="registerTicket" class="ticketAction" method="populateDropDown">
+
+		<action name="registerTicket" class="md.utm.fi.action.ticket.TicketAction"
+			method="populateDropDown">
 			<result name="success">ticket/createTicket.jsp</result>
 		</action>
-		
-		<action name="getBodyTicket" class="ticketAction" method="getBodyTicket">
+
+		<action name="getBodyTicket" class="md.utm.fi.action.ticket.TicketAction"
+			method="getBodyTicket">
 			<result name="success">ticket/bodyTicket.jsp</result>
 		</action>
-		
-		
+
+
 	</package>
 </struts>

@@ -78,7 +78,7 @@ public class User extends Person {
 	}
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
+	@JoinTable(name = "userAssignProject", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
 	public List<Project> getProjects() {
 
 		return projects;
@@ -88,4 +88,14 @@ public class User extends Person {
 		this.projects = projects;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (super.equals(obj))
+			return true;
+		if (obj instanceof User) {
+			return id.equals(User.class.cast(obj).getId());
+		} else {
+			return false;
+		}
+	}
 }
