@@ -1,6 +1,5 @@
 package md.utm.fi.model.dao.impl;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -32,16 +31,9 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 
 	@Transactional
 	public List<User> getUsersNotWithTheProject(Integer projectId) {
-		List<User> usersForProject = getUsersForProject(projectId);
-		List<User> allUsers = getAllUsers();
-		Iterator<User> iterator = allUsers.iterator();
-		while (iterator.hasNext()) {
-			User user = iterator.next();
-			if (usersForProject.contains(user)) {
-				iterator.remove();
-			}
-		}
-		return allUsers;
+		return getHibernateTemplate().find(
+				"select us from User us where us not in (select u from User u join u.projects p where p.id=?)",
+				projectId);
 	}
 
 	public List<User> getAllUsers() {
