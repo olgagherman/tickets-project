@@ -17,17 +17,23 @@
 					<th>Email</th>
 					<th>Created Date</th>
 					<th>Is Administrator</th>
+						<th>Phone Number </th>
 					<th>Edit</th>
 				</tr>
 			</thead>
 			<tbody>
 				<s:iterator value="userList" status="userStatus">
-					<tr>
-						<td><s:property value="name" /></td>
+					<tr><td>	<a
+							href=<s:url action="getBodyUser">
+						<s:param name="userId" value="%{id}" /></s:url>>
+								<s:property value="name" />
+						</a>
+						</td>
 						<td><s:property value="surname" /></td>
 						<td><s:property value="email" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 						<td><s:property value="admin" /></td>
+						<td><s:property value="phoneNumber" /></td>
 						<td><a
 							href=<s:url action="editUser">
 						<s:param name="userId" value="%{id}" />
@@ -44,6 +50,13 @@
 			</tbody>
 		</table>
 	</s:if>
+	
+	
+	
 	<br />
 </div>
+
+
+
+
 <s:include value="../footer.jsp" />

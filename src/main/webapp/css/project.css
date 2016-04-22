@@ -30,7 +30,7 @@
 float:left;
     padding: 20px; 
     width: 80%;
-    height: 150px;
+    height: auto;
    display: inblock;
     clear:both;
 }

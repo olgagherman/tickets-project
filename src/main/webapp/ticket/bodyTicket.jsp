@@ -26,12 +26,14 @@
 			<br>
 					<font size="5" color="orange">Proj name : <s:property value="nameProject" /></font>
 			<br>
+					<font size="5" color="orange">Phone Number : <s:property value="phoneNumber" /></font>
+			<br>
 		</div>
 		<ul id="bodyProj">
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
 					View Users </a></li>
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
-					+ Add User </a></li>
+					Assign User </a></li>
 			<li><a class="btn"
 				href=<s:url action="editProject"> <s:param name="projectId" value="%{id}" /></s:url>>
 					Edit </a></li>

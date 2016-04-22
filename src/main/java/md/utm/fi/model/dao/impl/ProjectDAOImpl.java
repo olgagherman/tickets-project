@@ -33,6 +33,7 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 		return getHibernateTemplate().find("from Project order by id desc");
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Project findProject(Integer id) {
 		return get(Project.class, id);
 	}

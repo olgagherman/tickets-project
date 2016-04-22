@@ -23,6 +23,7 @@ public class Ticket {
 	private Integer complexity;
 	private Date createdDate;
 	private Project project;
+	private User user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,6 +76,16 @@ public class Ticket {
 
 	public void setProject(Project project) {
 		this.project = project;
+	}
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "user_tickets", joinColumns = @JoinColumn(name = "ticket_id") , inverseJoinColumns = @JoinColumn(name = "user_id") )
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

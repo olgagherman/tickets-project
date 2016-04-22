@@ -6,6 +6,7 @@
 	<s:form>
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textfield name="surname" label="Surname" value="%{surname}" />
+			<s:textfield name="phoneNumber" label="Phone " value="%{phoneNumber}" />
 		<s:textfield name="email" label="Email" value="%{email}" />
 		<s:password name="password" label="Password" value="" />
 		<s:if test="%{id==null}">

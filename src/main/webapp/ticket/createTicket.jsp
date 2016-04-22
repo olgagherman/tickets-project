@@ -12,8 +12,12 @@
 		<s:select style="width:173px;height:30px;"
 			label="Select name of Project" headerKey="-1" list="nameProjects"
 			name="nameProject" />
-
-
+		<%-- 	<s:if test="%{id==null}">
+			<s:select style="width:173px;height:30px;"
+			label="Select User" headerKey="-1" list="nameUsers"
+			name="nameUser" />
+	</s:if>
+ --%>
 		<s:if test="%{id==null}">
 			<s:submit value="Create" action="createTicketAction" />
 		</s:if>

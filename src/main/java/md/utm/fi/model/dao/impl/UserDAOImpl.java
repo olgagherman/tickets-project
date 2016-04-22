@@ -2,6 +2,8 @@ package md.utm.fi.model.dao.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Transactional;
 
 import md.utm.fi.exception.ObjectsNotFoundException;
@@ -17,6 +19,7 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 	 * getHibernateTemplate().find("from Project p where p.user.id=?",
 	 * user.getId()); }
 	 */
+	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public User findUser(String login, String password) {
 		List<User> find = getHibernateTemplate().find("from User where email=? and password=?", login, password);
 		if (find.isEmpty()) {
@@ -40,8 +43,11 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 		return getHibernateTemplate().find("from User order by admin desc");
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public User findUser(Integer id) {
-		return get(User.class, id);
+		User user = get(User.class, id);
+		user.getProjects();
+		return user;
 	}
 
 	public void deleteUser(Integer id) {

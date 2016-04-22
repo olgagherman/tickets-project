@@ -29,6 +29,9 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	List<String> nameProjects;
 
+	private String nameUser;
+	private List<String> nameUsers;
+
 	public List<String> getNameProjects() {
 		return nameProjects;
 	}
@@ -117,6 +120,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	// list all Tickets
 	public String listAllTickets() {
 		ticketList = ticketDAO.getAllTickets();
+		ticket = new Ticket();
 		if (ticketList == null) {
 			ticketList = new ArrayList<Ticket>();
 		}
@@ -141,12 +145,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	public String populateDropDown() { //
 		nameProjects = projectDAO.getAllProjectName();
-
-		List<Project> projects = projectDAO.getAllProjects();
-		List<String> names = new ArrayList<String>();
-		for (Project next : projects) {
-			names.add(next.getName());
-		}
+		// nameUsers = projectDAO.getAllUserProjectName();
 		return Action.SUCCESS;
 	}
 
@@ -158,5 +157,21 @@ public class TicketAction implements ModelDriven<Ticket> {
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
+	}
+
+	public String getNameUser() {
+		return nameUser;
+	}
+
+	public void setNameUser(String nameUser) {
+		this.nameUser = nameUser;
+	}
+
+	public List<String> getNameUsers() {
+		return nameUsers;
+	}
+
+	public void setNameUsers(List<String> nameUsers) {
+		this.nameUsers = nameUsers;
 	}
 }

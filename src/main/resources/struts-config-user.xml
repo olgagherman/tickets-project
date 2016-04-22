@@ -83,7 +83,9 @@
 				<param name="projectId">${projectId}</param>
 			</result>
 		</action>
-
+	<action name="getBodyUser" class="md.utm.fi.action.user.UserViewAction" method="getBodyUser">
+			<result name="success">user/bodyUser.jsp</result>
+		</action>
 
 	</package>
 </struts>
