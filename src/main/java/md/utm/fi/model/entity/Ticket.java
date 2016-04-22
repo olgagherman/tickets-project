@@ -20,7 +20,7 @@ public class Ticket {
 	private Integer id;
 	private String name;
 	private String subject;
-	private Integer complexity;
+	private String complexity;
 	private Date createdDate;
 	private Project project;
 	private User user;
@@ -51,11 +51,11 @@ public class Ticket {
 		this.subject = subject;
 	}
 
-	public Integer getComplexity() {
+	public String getComplexity() {
 		return complexity;
 	}
 
-	public void setComplexity(Integer complexity) {
+	public void setComplexity(String complexity) {
 		this.complexity = complexity;
 	}
 

@@ -177,7 +177,7 @@ public class UserDAOImplTest {
 
 		Ticket ticket = new Ticket();
 		ticket.setName("T2");
-		ticket.setComplexity(3);
+		ticket.setComplexity("medium");
 		ticket.setCreatedDate(new Date());
 		ticket.setProject(proj);
 		ticketDAO.save(ticket);
@@ -185,7 +185,7 @@ public class UserDAOImplTest {
 
 		ticket = new Ticket();
 		ticket.setName("T2");
-		ticket.setComplexity(3);
+		ticket.setComplexity("hard");
 		ticket.setCreatedDate(new Date());
 		ticket.setProject(proj);
 		ticketDAO.save(ticket);

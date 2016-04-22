@@ -149,15 +149,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 		return Action.SUCCESS;
 	}
 
-	public String getBodyTicket() {
-		ticket = ticketDAO.findTicket(ticketId);
-
-		nameProject = ticket.getProject().getName();
-		if (ticket == null) {
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
+	
 
 	public String getNameUser() {
 		return nameUser;

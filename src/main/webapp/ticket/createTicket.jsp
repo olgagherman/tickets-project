@@ -6,8 +6,10 @@
 	<s:form>
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textfield name="subject" label="Subject" value="%{subject}" />
-		<s:textfield name="complexity" label="Complexity"
-			value="%{complexity}" />
+		<s:select label="Select Complexity" headerKey="-1"
+			headerValue="Select complexity"
+			list="%{#{'Easy':'Easy', 'Medium':'Medium', 'Hard':'Hard'}}"
+			name="complexity" value="%{complexity}" />
 
 		<s:select style="width:173px;height:30px;"
 			label="Select name of Project" headerKey="-1" list="nameProjects"
@@ -22,8 +24,8 @@
 			<s:submit value="Create" action="createTicketAction" />
 		</s:if>
 		<s:else>
-		
-			<s:submit value="Update" action="updateTicketAction"/> 
+
+			<s:submit value="Update" action="updateTicketAction" />
 		</s:else>
 	</s:form>
 </div>

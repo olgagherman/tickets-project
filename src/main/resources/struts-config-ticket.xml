@@ -58,7 +58,7 @@
 			<result name="success">ticket/createTicket.jsp</result>
 		</action>
 
-		<action name="getBodyTicket" class="md.utm.fi.action.ticket.TicketAction"
+		<action name="getBodyTicket" class="md.utm.fi.action.ticket.TicketViewerAction"
 			method="getBodyTicket">
 			<result name="success">ticket/bodyTicket.jsp</result>
 		</action>
