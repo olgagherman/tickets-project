@@ -12,4 +12,5 @@ public interface TicketDAO extends GenericDao {
 
 	void deleteTicket(Integer id);
 
+	List<Ticket> getTicketsForUser(Integer userId);
 }

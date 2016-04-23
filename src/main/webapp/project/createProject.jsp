@@ -4,6 +4,7 @@
 <div class="container-fluid margin-top-menu">
 	<h2>Create Project</h2>
 	<s:form>
+		<s:hidden name="id" value="%{id}" />
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textarea label="Description" name="description" cols="30" rows="8" />
 		<s:if test="%{id==null}">

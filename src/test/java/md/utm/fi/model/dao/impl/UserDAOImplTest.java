@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.dao.TicketDAO;
@@ -206,14 +207,35 @@ public class UserDAOImplTest {
 
 	}
 
+	@Transactional(readOnly = true)
 	@Test
 	public void nameTicket() {
-		Ticket ticket = ticketDAO.findTicket(3);
-		ticketDAO.refresh(ticket);
+		Ticket ticket = ticketDAO.findTicket(1);
 
 		Project pro = projectDao.findProject(1);
-		projectDao.refresh(pro);
+		List<Ticket> tickets = pro.getTickets();
+		for (Ticket ticket2 : tickets) {
+			System.out.println(ticket2.getName());
+		}
 
+		// String nameProject = ticket.getProject().getName();
+	}
+
+	@Test
+	public void userAssignTicket() {
+		Ticket ticket = ticketDAO.findTicket(1);
+		ticketDAO.refresh(ticket);
+
+		user = testable.findUser(1);
+		testable.refresh(user);
+
+		List<Ticket> tickets = new ArrayList<Ticket>();
+		tickets.add(ticket);
+
+		user.setTickets(tickets);
+		testable.saveOrUpdate(user);
+		ticket.setUser(user);
+		ticketDAO.saveOrUpdate(ticket);
 		// String nameProject = ticket.getProject().getName();
 	}
 

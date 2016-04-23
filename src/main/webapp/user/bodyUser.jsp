@@ -6,8 +6,8 @@
 	<div id="bodyObject">
 		<div id="imag">
 			<a
-				href=<s:url action="getBodyTicket">
-	<s:param name="ticketId" value="%{id}" />
+				href=<s:url action="getBodyUser">
+	<s:param name="userId" value="%{user.id}" />
 	</s:url>>
 				<img width=150px height=150px
 				src=<s:url value="/images/user.png"/>>
@@ -56,10 +56,11 @@
 				<s:iterator value="projects" status="projectsStatus">
 					<tr>
 						<td>
-							<s:url action="getBodyProject" var="viewProjectUrl">
+							<s:url action="getUresProjectTickets" var="viewUserProjectTicketUrl">
 									<s:param name="projectId" value="%{id}" />
+									<s:param name="userId" value="%{id}" />
 							</s:url>
-							<s:a href="%{viewProjectUrl}"> ${name} </s:a> 
+							<s:a href="%{viewUserProjectTicketUrl}"> ${name} </s:a> 
 						</td>
 						<td><s:property value="description" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>

@@ -86,6 +86,10 @@
 	<action name="getBodyUser" class="md.utm.fi.action.user.UserViewAction" method="getBodyUser">
 			<result name="success">user/bodyUser.jsp</result>
 		</action>
+		
+		<action name="getUresProjectTickets" class="md.utm.fi.action.user.UserViewAction" method="getTicketsForTheUser">
+			<result name="success">user/userTicketsForProject.jsp</result>
+		</action>
 
 	</package>
 </struts>

@@ -22,11 +22,18 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Ticket findTicket(Integer id) {
 		Ticket ticket = get(Ticket.class, id);
-		ticket.getProject().getName();
+		ticket.getProject();
+		refresh(ticket);
 		return ticket;
 	}
 
 	public void deleteTicket(Integer id) {
 		delete(findTicket(id));
 	}
+
+	public List<Ticket> getTicketsForUser(Integer userId) {
+		return getHibernateTemplate()
+				.find("select t from Ticket t join t.project p join p.users u where u.id=? and t.id=?", userId, 1);
+	}
+
 }

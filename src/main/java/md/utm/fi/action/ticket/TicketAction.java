@@ -71,7 +71,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public String addTicket() throws Exception {
 
 		ticket.setCreatedDate(new Date());
-		ticketDAO.saveOrUpdate(ticket);
+		ticketDAO.save(ticket);
 
 		Project proj = projectDAO.findProject(nameProject);
 		projectDAO.refresh(proj);
@@ -83,6 +83,8 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 		ticket.setProject(proj);
 		ticketDAO.saveOrUpdate(ticket);
+
+		Ticket ticket2 = ticketDAO.findTicket(ticket.getId());
 
 		if (ticket.getName() != null) {
 			ticket = new Ticket();
