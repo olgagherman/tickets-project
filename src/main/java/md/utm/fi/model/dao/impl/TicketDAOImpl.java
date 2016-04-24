@@ -11,6 +11,10 @@ import md.utm.fi.model.entity.Ticket;
 
 @SuppressWarnings("unchecked")
 public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
+
+
+
+	
 	public List<Book> retrieveAllUploadedTicketBooks(Ticket ticket) {
 		return getHibernateTemplate().find("from Book b where b.uploader.id=?", ticket.getId());
 	}

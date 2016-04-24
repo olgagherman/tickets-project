@@ -6,20 +6,14 @@
 	<s:form>
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textfield name="subject" label="Subject" value="%{subject}" />
-		<s:select label="Select Complexity" headerKey="-1"
-			headerValue="Select complexity"
-			list="%{#{'Easy':'Easy', 'Medium':'Medium', 'Hard':'Hard'}}"
+		
+        <s:select style="width:173px;height:30px;"
+			label="Select coplexity"  list="listComplexity"
 			name="complexity" value="%{complexity}" />
-
 		<s:select style="width:173px;height:30px;"
 			label="Select name of Project" headerKey="-1" list="nameProjects"
 			name="nameProject" />
-		<%-- 	<s:if test="%{id==null}">
-			<s:select style="width:173px;height:30px;"
-			label="Select User" headerKey="-1" list="nameUsers"
-			name="nameUser" />
-	</s:if>
- --%>
+	
 		<s:if test="%{id==null}">
 			<s:submit value="Create" action="createTicketAction" />
 		</s:if>

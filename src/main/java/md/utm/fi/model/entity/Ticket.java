@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Ticket {
+	
 
 	private Integer id;
 	private String name;

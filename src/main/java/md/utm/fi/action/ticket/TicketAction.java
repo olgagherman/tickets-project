@@ -2,6 +2,7 @@ package md.utm.fi.action.ticket;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -14,6 +15,15 @@ import md.utm.fi.model.entity.Project;
 import md.utm.fi.model.entity.Ticket;
 
 public class TicketAction implements ModelDriven<Ticket> {
+	
+	 public enum Complexity{ 
+		 Easy, Medium, Hard
+	    }
+
+    private EnumSet<Complexity> listComplexity;
+	public EnumSet<Complexity> getListComplexity() {
+		return listComplexity;
+	}
 
 	private Ticket ticket = new Ticket();
 
@@ -36,9 +46,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 		return nameProjects;
 	}
 
-	public void setNameProjects(List<String> nameProjects) {
-		this.nameProjects = nameProjects;
-	}
+	
 
 	public List<Ticket> getTicketList() {
 		return ticketList;
@@ -145,7 +153,8 @@ public class TicketAction implements ModelDriven<Ticket> {
 		this.projectDAO = projectDAO;
 	}
 
-	public String populateDropDown() { //
+	public String populateDropDown() { 
+		listComplexity = EnumSet.allOf( Complexity.class );
 		nameProjects = projectDAO.getAllProjectName();
 		// nameUsers = projectDAO.getAllUserProjectName();
 		return Action.SUCCESS;

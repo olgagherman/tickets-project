@@ -1,5 +1,6 @@
 package md.utm.fi.action.ticket;
 
+import java.util.EnumSet;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -11,6 +12,8 @@ import md.utm.fi.model.entity.Ticket;
 
 public class TicketViewerAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
+	
+	
 	
 	private Ticket ticket = new Ticket();
 
