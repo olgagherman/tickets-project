@@ -7,7 +7,6 @@
 <link href='http://fonts.googleapis.com/css?family=Varela+Round'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<link rel="stylesheet" type="text/css" href="css/css-bootstrap">
 <script
 	src="<s:url value="https://code.jquery.com/jquery-1.12.0.min.js" />"></script>
 <script

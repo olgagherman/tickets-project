@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	font-family: "Varela Round" !important;
+	font-family: "Varela Round";
 	font-size: 14px;
 	color: #061C37;
 	background-color: #EFEFEF !important;
@@ -127,35 +127,6 @@ p {
 	text-align: left;
 }
 
-.btn {
-	 width:200px;
-  background: #1f73ab;
-  background-image: -webkit-linear-gradient(top, #1f73ab, #1981c2);
-  background-image: -moz-linear-gradient(top, #1f73ab, #1981c2);
-  background-image: -ms-linear-gradient(top, #1f73ab, #1981c2);
-  background-image: -o-linear-gradient(top, #1f73ab, #1981c2);
-  background-image: linear-gradient(to bottom, #1f73ab, #1981c2);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 17px;
-  padding: 13px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
-
-
 ul#bodyProj {
     padding: 0;
     list-style-type:none;
@@ -173,3 +144,35 @@ ul#bodyProj li a {
     padding: 10px 20px;
    
 }
+/*=========BOARD STYLES=========*/
+.board-item {
+	height: 100px;
+	border: 2px solid #000;
+	background-color: #123B8D;
+	margin: 15px 0;
+	display: block;
+	color: white;
+	padding: 5px;
+	position: relative;
+	text-decoration: none;
+}
+
+.board-item:hover {
+	background-color: #4662F2;
+	color: white;
+	text-decoration: none !important;
+	
+}
+
+.board-item span {
+	position: absolute;
+	bottom: 0;
+	right: 3px;
+	font-size: 55px;
+	line-height: 55px;
+}
+
+#board-items {
+	padding-top: 5%;
+}
+/*=========END BOARD=========*/

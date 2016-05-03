@@ -1,38 +1,5 @@
 #header{
-	padding: 0 10px;
-}
-
-#header  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-#header  li {
-    float: left;
-    border-right:1px solid #bbb;
-}
-
-#header  li:last-child {
-    border-right: none;
-}
-
-#header  li  a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#header  li  a:hover:not(.activeH) {
-    background-color: #111;
-}
-
-#header .activeH {
-    background-color: #4CAF50;
+	padding: 0;
 }
 
 #ticket-system{
@@ -41,37 +8,53 @@
 }
 
 /*========== Menu style =============*/
-ul {
+#nav-menu {
+	height: 50px;
+}
+#nav-menu ul li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#nav-menu ul li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#nav-menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    border-top: 2px solid #000;
+    border-bottom: 1px dashed #000;
+    position: relative;
+    height: 100%;
 }
 
-li {
+#nav-menu li {
     float: left;
-    border-right:1px solid #bbb;
+    border-right: 2px solid #000;
 }
 
-li:last-child {
+#nav-menu li:last-child {
     border-right: none;
 }
 
-li a {
+#nav-menu li a {
     display: block;
-    color: white;
+    color: blue;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 20px 5px 5px;;
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
+#nav-menu li a:hover:not(.active) {
+    background-color: yellow;
+    opacity: 0.5;
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: yellow;
+    opacity: 0.5;
 }
 /*========== End menu =============*/
 
