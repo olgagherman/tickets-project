@@ -4,6 +4,7 @@
 <div class="container-fluid margin-top-menu">
 	<h2>Register user</h2>
 	<s:form>
+	<s:hidden name="id" value="%{id}" />
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textfield name="surname" label="Surname" value="%{surname}" />
 			<s:textfield name="phoneNumber" label="Phone " value="%{phoneNumber}" />

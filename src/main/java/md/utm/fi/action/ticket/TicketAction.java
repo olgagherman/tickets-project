@@ -80,16 +80,10 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 		ticket.setCreatedDate(new Date());
 		ticket.setComplexity(ticketComplexity);
-		ticketDAO.save(ticket);
+		ticketDAO.saveOrUpdate(ticket);
 
 		Project proj = projectDAO.findProject(nameProject);
 		projectDAO.refresh(proj);
-
-		// List<Ticket> tickets = proj.getTickets();
-		// tickets.add(ticket);
-		// proj.setTickets(tickets);
-		// projectDAO.saveOrUpdate(proj);
-
 		ticket.setProject(proj);
 		ticketDAO.saveOrUpdate(ticket);
 
@@ -102,9 +96,8 @@ public class TicketAction implements ModelDriven<Ticket> {
 		return Action.ERROR;
 	}
 
-	public String updateTicket() {
-
-		ticketDAO.saveOrUpdate(ticket);
+	public String updateTicket() throws Exception {
+		addTicket();
 		return Action.SUCCESS;
 	}
 
@@ -113,8 +106,9 @@ public class TicketAction implements ModelDriven<Ticket> {
 		String returnType = Action.NONE;
 		if (ticketId != null) {
 			ActionContext.getContext().getValueStack().getRoot().remove(ticket);
-			populateDropDown();
 			ticket = getTicketDAO().findTicket(ticketId);
+			populateDropDown();
+
 			ActionContext.getContext().getValueStack().getRoot().add(ticket);
 			returnType = Action.SUCCESS;
 		}
