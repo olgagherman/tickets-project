@@ -37,6 +37,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	private Integer ticketId;
 
 	private String nameProject;
+	private String ticketComplexity;
 
 	List<String> nameProjects;
 
@@ -78,7 +79,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public String addTicket() throws Exception {
 
 		ticket.setCreatedDate(new Date());
-
+		ticket.setComplexity(ticketComplexity);
 		ticketDAO.save(ticket);
 
 		Project proj = projectDAO.findProject(nameProject);
@@ -112,7 +113,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 		String returnType = Action.NONE;
 		if (ticketId != null) {
 			ActionContext.getContext().getValueStack().getRoot().remove(ticket);
-
+			populateDropDown();
 			ticket = getTicketDAO().findTicket(ticketId);
 			ActionContext.getContext().getValueStack().getRoot().add(ticket);
 			returnType = Action.SUCCESS;
@@ -175,4 +176,13 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public void setNameUsers(List<String> nameUsers) {
 		this.nameUsers = nameUsers;
 	}
+
+	public String getTicketComplexity() {
+		return ticketComplexity;
+	}
+
+	public void setTicketComplexity(String ticketComplexity) {
+		this.ticketComplexity = ticketComplexity;
+	}
+
 }

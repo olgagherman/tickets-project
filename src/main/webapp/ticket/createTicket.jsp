@@ -8,8 +8,9 @@
 		<s:textfield name="subject" label="Subject" value="%{subject}" />
 		
         <s:select style="width:173px;height:30px;"
-			label="Select coplexity"  list="listComplexity"
-			name="complexity" value="complexity" />
+			label="Select coplexity" headerKey="-1" list="listComplexity"
+			name="ticketComplexity" />
+			
 		<s:select style="width:173px;height:30px;"
 			label="Select name of Project" headerKey="-1" list="nameProjects"
 			name="nameProject" />
