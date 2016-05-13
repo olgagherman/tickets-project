@@ -9,7 +9,7 @@
 		
         <s:select style="width:173px;height:30px;"
 			label="Select coplexity"  list="listComplexity"
-			name="complexity" value="%{complexity}" />
+			name="complexity" value="complexity" />
 		<s:select style="width:173px;height:30px;"
 			label="Select name of Project" headerKey="-1" list="nameProjects"
 			name="nameProject" />

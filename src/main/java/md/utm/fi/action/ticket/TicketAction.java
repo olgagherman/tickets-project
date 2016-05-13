@@ -15,12 +15,13 @@ import md.utm.fi.model.entity.Project;
 import md.utm.fi.model.entity.Ticket;
 
 public class TicketAction implements ModelDriven<Ticket> {
-	
-	 public enum Complexity{ 
-		 Easy, Medium, Hard
-	    }
 
-    private EnumSet<Complexity> listComplexity;
+	public enum Complexity {
+		Easy, Medium, Hard
+	}
+
+	private EnumSet<Complexity> listComplexity;
+
 	public EnumSet<Complexity> getListComplexity() {
 		return listComplexity;
 	}
@@ -45,8 +46,6 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public List<String> getNameProjects() {
 		return nameProjects;
 	}
-
-	
 
 	public List<Ticket> getTicketList() {
 		return ticketList;
@@ -79,15 +78,16 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public String addTicket() throws Exception {
 
 		ticket.setCreatedDate(new Date());
+
 		ticketDAO.save(ticket);
 
 		Project proj = projectDAO.findProject(nameProject);
 		projectDAO.refresh(proj);
 
-		List<Ticket> tickets = proj.getTickets();
-		tickets.add(ticket);
-		proj.setTickets(tickets);
-		projectDAO.saveOrUpdate(proj);
+		// List<Ticket> tickets = proj.getTickets();
+		// tickets.add(ticket);
+		// proj.setTickets(tickets);
+		// projectDAO.saveOrUpdate(proj);
 
 		ticket.setProject(proj);
 		ticketDAO.saveOrUpdate(ticket);
@@ -153,14 +153,12 @@ public class TicketAction implements ModelDriven<Ticket> {
 		this.projectDAO = projectDAO;
 	}
 
-	public String populateDropDown() { 
-		listComplexity = EnumSet.allOf( Complexity.class );
+	public String populateDropDown() {
+		listComplexity = EnumSet.allOf(Complexity.class);
 		nameProjects = projectDAO.getAllProjectName();
 		// nameUsers = projectDAO.getAllUserProjectName();
 		return Action.SUCCESS;
 	}
-
-	
 
 	public String getNameUser() {
 		return nameUser;

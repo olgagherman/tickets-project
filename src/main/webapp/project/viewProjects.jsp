@@ -33,6 +33,6 @@
 			</tbody>
 		</table>
 	</s:if>
-	<a href="registerProject">ADD new Project</a>
+	
 </div>
 <s:include value="../footer.jsp" />

@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="/struts-tags"%>
 <s:include value="../header.jsp" />
 <link rel="stylesheet" type="text/css" href="css/project.css">
-<div class="container-fluid margin-top-menu">
+
 	<br>
 	 <div id="bodyObject">
 		<div id="imag">
@@ -59,10 +59,13 @@
 				</a>
 			</li>
 		</ul>
-	</div> 
+	</div>
+	
 	<br>
+	<br>
+	
 	<s:if test="usersList.size() > 0">
-		<table>
+		<table class="zui-table zui-table-zebra zui-table-horizontal">
 			<tr>
 				<th>Name</th>
 				<th>Surname</th>
@@ -73,7 +76,12 @@
 			</tr>
 			<s:iterator value="usersList" status="userStatus">
 				<tr>
-					<td><s:property value="name" /></td>
+					<td>	<a
+							href=<s:url action="getBodyUser">
+						<s:param name="userId" value="%{id}" /></s:url>>
+								<s:property value="name" />
+						</a>
+						</td>
 					<td><s:property value="surname" /></td>
 					<td><s:property value="email" /></td>
 					<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
@@ -95,5 +103,5 @@
 			</s:iterator>
 		</table>
 	</s:if> 
-</div>
+
 <s:include value="../footer.jsp" />

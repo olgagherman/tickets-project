@@ -16,7 +16,6 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Ticket {
-	
 
 	private Integer id;
 	private String name;
@@ -69,7 +68,7 @@ public class Ticket {
 		this.createdDate = createdDate;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "project_tickets", joinColumns = @JoinColumn(name = "ticket_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
 	public Project getProject() {
 		return project;
