@@ -16,6 +16,7 @@ public class ProjectAction implements ModelDriven<Project> {
 	private Project project = new Project();
 
 	private ProjectDAO projectDAO;
+	private ProjectDAO projectDAO1;
 
 	private List<Project> projectList;
 
@@ -106,6 +107,7 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	// list all Projects
 	public String listAllProjects() {
+
 		projectList = projectDAO.getAllProjects();
 		if (projectList == null) {
 			projectList = new ArrayList<Project>();

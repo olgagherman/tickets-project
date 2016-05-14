@@ -30,12 +30,13 @@ public class UserDAOImplTest {
 	@Autowired
 	private UserDAO testable;
 	@Autowired
+	private UserDAO userDAO;
+	@Autowired
 	private HibernateTransactionManager transactionManager;
 	@Autowired
 	private ProjectDAO projectDao;
 	@Autowired
 	private TicketDAO ticketDAO;
-
 	private User user;
 	private Project project;
 
@@ -94,13 +95,7 @@ public class UserDAOImplTest {
 		Project project = projectDao.findProject(2);
 		projectDao.refresh(project);
 
-		// testable.deleteUser(5);
-		// List<Project> projects = new ArrayList<Project>();
-		// projects.add(project);
-		// user.setProjects(projects);
-		// testable.save(user);
-		// Assert.assertTrue(user.getId() > 0);
-		List<User> userlist = project.getUsers();
+		project.getUsers();
 	}
 
 	@Test
@@ -125,21 +120,7 @@ public class UserDAOImplTest {
 		// beginTransaction.begin();
 		Project project = projectDao.findProject(28);
 		projectDao.refresh(project);
-		// String value = "from User user0_ left outer join userAssignProject
-		// project1_ on user0_.id=project1_.user_id left outer join Project
-		// project2_ on project1_.project_id=project2_.id where user0_.id=?";
-		// Session currentSession =
-		// transactionManager.getSessionFactory().getCurrentSession();
-		// Query query = currentSession.createQuery(value);
-		// query.setInteger(1, user.getId());
-		// List<User> userlist = query.list();
-		// projectDao.retrieveAllProjectUser(project);
-		List<User> userlist = project.getUsers();
-		// testable.save(user);
-		/*
-		 * for (User us : userlist) { System.out.println(us.getName()); }
-		 */
-		// beginTransaction.commit();
+		project.getUsers();
 	}
 
 	/*
@@ -156,7 +137,7 @@ public class UserDAOImplTest {
 		HibernateUtil hibernateUtil = new HibernateUtil();
 		Session session = hibernateUtil.getSession();
 		Query query = session.createQuery("from user where Id > 10");
-		List results = query.list();
+		query.list();
 	}
 
 	@Test
@@ -165,7 +146,6 @@ public class UserDAOImplTest {
 		for (String next : names) {
 			System.out.println("next name: " + next);
 		}
-		int i = 4;
 	}
 
 	@Test
@@ -210,7 +190,7 @@ public class UserDAOImplTest {
 	@Transactional(readOnly = true)
 	@Test
 	public void nameTicket() {
-		Ticket ticket = ticketDAO.findTicket(1);
+		ticketDAO.findTicket(1);
 
 		Project pro = projectDao.findProject(1);
 		List<Ticket> tickets = pro.getTickets();
@@ -223,20 +203,18 @@ public class UserDAOImplTest {
 
 	@Test
 	public void userAssignTicket() {
-		Ticket ticket = ticketDAO.findTicket(1);
-		ticketDAO.refresh(ticket);
 
-		user = testable.findUser(1);
-		testable.refresh(user);
+		Ticket ticket = new Ticket();
 
-		List<Ticket> tickets = new ArrayList<Ticket>();
-		tickets.add(ticket);
+		// ticketDAO.saveOrUpdate(ticket);
 
-		user.setTickets(tickets);
-		testable.saveOrUpdate(user);
+		ticket = ticketDAO.findTicket(1);
+
+		user = userDAO.findUser(1);
+
 		ticket.setUser(user);
 		ticketDAO.saveOrUpdate(ticket);
-		// String nameProject = ticket.getProject().getName();
+
 	}
 
 }

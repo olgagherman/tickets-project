@@ -77,8 +77,10 @@
 			<s:iterator value="usersList" status="userStatus">
 				<tr>
 					<td>	<a
-							href=<s:url action="getBodyUser">
-						<s:param name="userId" value="%{id}" /></s:url>>
+							href=<s:url action="getUresProjectTickets">
+						<s:param name="userId" value="%{id}" />
+						<s:param name="projectId" value="projectId" />
+						</s:url>>
 								<s:property value="name" />
 						</a>
 						</td>

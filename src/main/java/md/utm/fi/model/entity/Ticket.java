@@ -68,7 +68,7 @@ public class Ticket {
 		this.createdDate = createdDate;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "project_tickets", joinColumns = @JoinColumn(name = "ticket_id") , inverseJoinColumns = @JoinColumn(name = "project_id") )
 	public Project getProject() {
 		return project;

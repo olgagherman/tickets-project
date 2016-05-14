@@ -1,7 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:include value="../header.jsp" />
+<link rel="stylesheet" type="text/css" href="css/project.css">
 <div class="container-fluid margin-top-menu">
-	<link rel="stylesheet" type="text/css" href="css/project.css">
+	
 	<br>
 	<div id="bodyObject">
 		<div id="imag">

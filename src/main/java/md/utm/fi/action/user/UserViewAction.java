@@ -40,7 +40,7 @@ public class UserViewAction extends ActionSupport {
 	public String getTicketsForTheUser() {
 		setProject(projectDAO.findProject(projectId));
 
-		userProjectTickets = ticketDAO.getTicketsForUser(userId);
+		userProjectTickets = ticketDAO.getTicketsForUser(userId, projectId);
 		return Action.SUCCESS;
 	}
 

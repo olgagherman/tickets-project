@@ -47,6 +47,7 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 	public User findUser(Integer id) {
 		User user = get(User.class, id);
 		user.getProjects();
+		refresh(user);
 		return user;
 	}
 

@@ -12,9 +12,6 @@ import md.utm.fi.model.entity.Ticket;
 @SuppressWarnings("unchecked")
 public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 
-
-
-	
 	public List<Book> retrieveAllUploadedTicketBooks(Ticket ticket) {
 		return getHibernateTemplate().find("from Book b where b.uploader.id=?", ticket.getId());
 	}
@@ -35,9 +32,14 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 		delete(findTicket(id));
 	}
 
-	public List<Ticket> getTicketsForUser(Integer userId) {
-		return getHibernateTemplate()
-				.find("select t from Ticket t join t.project p join p.users u where u.id=? and t.id=?", userId, 1);
+	public List<Ticket> getTicketsForUser(Integer userId, Integer projectId) {
+		// return getHibernateTemplate().find(
+		// "select t from Ticket t inner join t.project p inner join p.users u
+		// where u.id=? and p.id=?", userId,
+		// projectId);
+		return getHibernateTemplate().find(
+				"select t from Ticket t inner join t.user u inner join u.projects p where u.id=? and p.id=?", userId,
+				projectId);
 	}
 
 }
