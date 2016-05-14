@@ -23,8 +23,7 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Ticket findTicket(Integer id) {
 		Ticket ticket = get(Ticket.class, id);
-		ticket.getProject();
-		refresh(ticket);
+		ticket.getProject().getName();
 		return ticket;
 	}
 
