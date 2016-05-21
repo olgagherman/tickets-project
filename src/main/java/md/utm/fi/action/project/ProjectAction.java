@@ -11,12 +11,12 @@ import com.opensymphony.xwork2.ModelDriven;
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.entity.Project;
 
+//actionContext.getcontext.getsession.get();
 public class ProjectAction implements ModelDriven<Project> {
 
 	private Project project = new Project();
 
 	private ProjectDAO projectDAO;
-	private ProjectDAO projectDAO1;
 
 	private List<Project> projectList;
 

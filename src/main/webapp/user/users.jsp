@@ -12,6 +12,8 @@
 		<table class="zui-table zui-table-zebra zui-table-horizontal">
 			<thead>
 				<tr>
+				
+					<th>View</th>
 					<th>Name</th>
 					<th>Surname</th>
 					<th>Email</th>
@@ -26,8 +28,13 @@
 					<tr><td>	<a
 							href=<s:url action="getBodyUser">
 						<s:param name="userId" value="%{id}" /></s:url>>
-								<s:property value="name" />
+						<img alt="Edit" src=<s:url value="/images/viewBody.png"/>>
 						</a>
+						</td>
+						<td>
+								<s:property value="name" />
+						
+						
 						</td>
 						<td><s:property value="surname" /></td>
 						<td><s:property value="email" /></td>

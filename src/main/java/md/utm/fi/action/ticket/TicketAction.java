@@ -80,6 +80,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 		ticket.setCreatedDate(new Date());
 		ticket.setComplexity(ticketComplexity);
+		ticket.setState("NonAssigned");
 		ticketDAO.saveOrUpdate(ticket);
 
 		Project proj = projectDAO.findProject(nameProject);
@@ -151,6 +152,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 	public String populateDropDown() {
 		listComplexity = EnumSet.allOf(Complexity.class);
 		nameProjects = projectDAO.getAllProjectName();
+
 		// nameUsers = projectDAO.getAllUserProjectName();
 		return Action.SUCCESS;
 	}

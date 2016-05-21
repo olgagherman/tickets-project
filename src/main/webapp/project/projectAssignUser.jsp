@@ -9,10 +9,14 @@
 		<s:form action="addUserToTheProject">
 			<s:hidden value="%{projectId}" name="projectId" />
 			<s:checkboxlist list="userList" listKey="id" listValue="%{name +' '+ surname}"
-				name="selectedUsers"/>
+				name="selectedUsers"  />
 			<s:submit value="Add users to the project"/>
 		</s:form>
 	</s:if>
+
+
+
+	
 </div>
 
 

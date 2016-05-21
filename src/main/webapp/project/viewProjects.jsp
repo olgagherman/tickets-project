@@ -12,6 +12,7 @@
 		<table class="zui-table zui-table-zebra zui-table-horizontal">
 			<thead>
 				<tr>
+				<th>View</th>
 					<th>Name</th>
 					<th>Description</th>
 					<th>Created Date</th>
@@ -21,11 +22,16 @@
 				<s:iterator value="projectList" status="projectStatus">
 					<tr>
 						<td>
-							<s:url action="getBodyProject" var="viewProjectUrl">
-									<s:param name="projectId" value="%{id}" />
-							</s:url>
-							<s:a href="%{viewProjectUrl}"> ${name} </s:a> 
+						
+						<a
+							href=<s:url action="getBodyProject">
+						<s:param name="projectId" value="%{id}" /></s:url>>
+						<img alt="Edit" src=<s:url value="/images/viewBody.png"/>>
+						</a>
+						<td>
+								<s:property value="name" />
 						</td>
+						
 						<td><s:property value="description" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 					</tr>

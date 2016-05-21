@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import md.utm.fi.model.dao.TicketDAO;
 import md.utm.fi.model.entity.Ticket;
+import md.utm.fi.model.entity.User;
 
 @SuppressWarnings("unchecked")
 public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
@@ -24,6 +25,10 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	public Ticket findTicket(Integer id) {
 		Ticket ticket = get(Ticket.class, id);
 		ticket.getProject().getName();
+		ticket.getProject().getId();
+		if (ticket.getState().equals("Assigned")) {
+			ticket.getUser().getName();
+		}
 		return ticket;
 	}
 
@@ -39,6 +44,16 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 		return getHibernateTemplate().find(
 				"select t from Ticket t inner join t.user u inner join u.projects p where u.id=? and p.id=?", userId,
 				projectId);
+	}
+
+	@Transactional(readOnly = false)
+	public void addUsersToTheTicket(User user, Integer ticketId) {
+
+		Ticket ticket = findTicket(ticketId);
+		ticket.setUser(user);
+		ticket.setState("Assigned");
+		saveOrUpdate(ticket);
+
 	}
 
 }

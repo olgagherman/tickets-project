@@ -62,7 +62,21 @@
 			method="getBodyTicket">
 			<result name="success">ticket/bodyTicket.jsp</result>
 		</action>
-
+		
+	<action name="addUserToTicket" class="md.utm.fi.action.ticket.TicketViewerAction"
+			method="listAllProjectUsers">
+			<result name="success">ticket/addUserToTicket.jsp</result>
+		</action>
+		
+			<action name="addUserToTheTicket" class="md.utm.fi.action.ticket.AddUserToTicket"
+			method="addUsersToTheTicket">
+			
+			<result name="success" type="redirectAction">
+				<param name="actionName">getBodyTicket</param>
+				<param name="ticketId">${ticketId}</param>
+			</result>
+		
+		</action>
 
 	</package>
 </struts>

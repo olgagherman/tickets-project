@@ -8,7 +8,7 @@
 		<div id="imag">
 			<a
 				href=<s:url action="getBodyTicket">
-	<s:param name="ticketId" value="%{id}" />
+	<s:param name="ticketId" value="%{ticket.id}" />
 	</s:url>>
 				<img width=150px height=150px
 				src=<s:url value="/images/tickets.jpg"/>>
@@ -24,11 +24,26 @@
 			<br> <font size="4" color="orange"> Created Date :<s:date
 					name="ticket.createdDate" format="dd/MM/yyyy" /></font> <br> <font size="4"
 				color="orange"> Description : <s:property value="ticket.description" /></font>
+				<br>
+            <font size="5" color="orange">State : <s:property value="ticket.state" /></font>
+				
 			<br>
-					<font size="5" color="orange">Proj name : <s:property value="nameProject" /></font>
+					<font size="5" color="orange">Project name : <s:property value="nameProject" /></font>
+			<br>
+			
+				<font size="5" color="orange">Assigned to : <s:property value="nameUser" /></font>
 			<br>
 		</div>
 		
+		
+		<a class="btn" href=
+					<s:url action="addUserToTicket" > 
+							 <s:param name="ticketId" value="%{ticket.id}" />
+							
+					</s:url>
+				>
+					Select a user 
+				</a>
 	</div>
 	<br>
 	

@@ -36,9 +36,10 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 		} else {
 			error = false;
 			sessionMap.put("userName", user.getName());
+			sessionMap.put("userId", user.getId());
 			sessionMap.put("logged", true);
 			sessionMap.put("admin", user.isAdmin());
-			
+
 		}
 
 		if (error) {

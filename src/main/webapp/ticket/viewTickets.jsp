@@ -16,10 +16,13 @@
 		<table class="zui-table zui-table-zebra zui-table-horizontal">
 			<thead>
 				<tr>
+				<th>View</th>
 					<th>Name</th>
 					<th>subject</th>
 					<th>complexity</th>
 					<th>Created Date</th>
+					<th>State</th>
+					
 					<th>Edit</th>
 				</tr>
 			</thead>
@@ -31,8 +34,11 @@
 						<a
 							href=<s:url action="getBodyTicket">
 						<s:param name="ticketId" value="%{id}" /></s:url>>
+						<img alt="Edit" src=<s:url value="/images/viewBody.png"/>>
+						</a>
+						<td>
 								<s:property value="name" />
-						</a></td>
+						</td>
 						<td><s:property value="subject" /></td>
 						<td><s:property value="complexity" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
@@ -48,6 +54,7 @@
 					</s:url>>
 								<img alt="Remove" src=<s:url value="/images/delete-icon.png"/>>
 						</a></td>
+						<td><s:property value="state" /></td>
 					</tr>
 				</s:iterator>
 			</tbody>

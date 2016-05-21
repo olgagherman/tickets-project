@@ -21,6 +21,7 @@ public class Ticket {
 	private String name;
 	private String subject;
 	private String complexity;
+	private String state;
 	private Date createdDate;
 	private Project project;
 	private User user;
@@ -86,6 +87,14 @@ public class Ticket {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

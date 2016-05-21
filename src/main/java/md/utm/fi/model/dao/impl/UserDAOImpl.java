@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import md.utm.fi.exception.ObjectsNotFoundException;
 import md.utm.fi.model.dao.UserDAO;
 import md.utm.fi.model.entity.Project;
+import md.utm.fi.model.entity.Ticket;
 import md.utm.fi.model.entity.User;
 
 @SuppressWarnings("unchecked")
@@ -47,7 +48,7 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 	public User findUser(Integer id) {
 		User user = get(User.class, id);
 		user.getProjects();
-		refresh(user);
+
 		return user;
 	}
 
@@ -62,6 +63,15 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 			user.getProjects().add(project);
 			saveOrUpdate(user);
 		}
+	}
+
+	@Transactional(readOnly = false)
+	public void addUsersToTheTicket(Integer userId, Ticket ticket) {
+
+		User user = findUser(userId);
+		user.getTickets().add(ticket);
+		saveOrUpdate(user);
+
 	}
 
 }
