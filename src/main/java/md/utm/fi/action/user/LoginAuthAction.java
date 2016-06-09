@@ -15,9 +15,10 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 	private String email;
 	private String password;
 	private UserDAO userDAO;
+	// public Singleton log = Singleton.getInstance();
 
 	private Boolean error;
-	private Map<String, Object> sessionMap;
+	public Map<String, Object> sessionMap;
 	private User user;
 
 	@Override
@@ -27,9 +28,6 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 			error = true;
 		} else if (password.equals("")) {
 			addActionError("Please Enter password.");
-			error = true;
-		} else if (email.equalsIgnoreCase(password)) {
-			addActionError("Email and password should be different.");
 			error = true;
 		} else if (findUser() == null) {
 			error = true;
@@ -53,6 +51,7 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 	public String logOut() {
 		if (sessionMap.containsKey("userName")) {
 			sessionMap.remove("userName");
+			sessionMap.remove("userId");
 			sessionMap.put("logged", false);
 			sessionMap.put("admin", false);
 		}

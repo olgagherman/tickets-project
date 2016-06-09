@@ -3,9 +3,12 @@
 <s:include value="../header.jsp" />
 <div class="container-fluid margin-top-menu">
 	<div style="float: left; width: 100%; margin: 10px 50px;">
+			<s:if test="%{#session.admin ==true}">
 		<a class="btn" style="float: left;"
 			href=<s:url action="register">
 			</s:url>> + Add User </a>
+			</s:if>
+			
 	</div>
 	<br>
 	<s:if test="userList.size() > 0">

@@ -3,10 +3,18 @@
 <link rel="stylesheet" type="text/css" href="css/project.css">
 <div class="container-fluid margin-top-menu">
 	<div style="float: left; width: 100%; margin: 10px 50px;">
+		<s:if test="%{#session.admin ==true}">
 		<a class="btn" style="float: left;"
 			href=<s:url action="registerProject">
 		</s:url>> + Add Project
 		</a>
+		</s:if>
+			<s:if test="%{#session.logged ==true}">
+			<a class="btn" style="float: left;"
+			href=<s:url action="userProjects">
+					</s:url>> My Projects
+		</a>
+		</s:if>
 	</div>
 	<s:if test="projectList.size() > 0">
 		<table class="zui-table zui-table-zebra zui-table-horizontal">

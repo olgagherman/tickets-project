@@ -22,7 +22,7 @@
 			<div class="login-form-main-message">
 				<s:if test="hasActionErrors()">
 					<div class="errors">
-						<s:actionerror />
+					
 					</div>
 				</s:if>
 				<s:property value="exception" />

@@ -2,6 +2,8 @@ package md.utm.fi.model.dao.impl;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,8 +49,9 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public User findUser(Integer id) {
 		User user = get(User.class, id);
-		user.getProjects();
-
+		List<Project> pr = user.getProjects();
+		List<Ticket> tk = user.getTickets();
+		refresh(user);
 		return user;
 	}
 
@@ -65,12 +68,30 @@ public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
 		}
 	}
 
+	public List<Project> getUserProjects(Integer userId) {
+		User user = findUser(userId);
+		return user.getProjects();
+	}
+
+	public List<Ticket> getUserTickets(Integer userId) {
+		User user = findUser(userId);
+		return user.getTickets();
+	}
+
 	@Transactional(readOnly = false)
 	public void addUsersToTheTicket(Integer userId, Ticket ticket) {
 
 		User user = findUser(userId);
 		user.getTickets().add(ticket);
 		saveOrUpdate(user);
+
+	}
+
+	@Transactional(readOnly = false)
+
+	public int getCountTickets() throws DataAccessException {
+
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Ticket"));
 
 	}
 

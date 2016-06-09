@@ -3,12 +3,14 @@ package md.utm.fi.action.project;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.fi.model.dao.ProjectDAO;
+import md.utm.fi.model.dao.UserDAO;
 import md.utm.fi.model.entity.Project;
 
 //actionContext.getcontext.getsession.get();
@@ -17,6 +19,16 @@ public class ProjectAction implements ModelDriven<Project> {
 	private Project project = new Project();
 
 	private ProjectDAO projectDAO;
+
+	private UserDAO userDAO;
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
 
 	private List<Project> projectList;
 
@@ -108,6 +120,10 @@ public class ProjectAction implements ModelDriven<Project> {
 	// list all Projects
 	public String listAllProjects() {
 
+		Map<String, Object> sesio = ActionContext.getContext().getSession();
+		sesio.get("logged");
+		boolean a = sesio.containsKey("admin");
+		System.out.println(a);
 		projectList = projectDAO.getAllProjects();
 		if (projectList == null) {
 			projectList = new ArrayList<Project>();
@@ -115,4 +131,16 @@ public class ProjectAction implements ModelDriven<Project> {
 		return Action.SUCCESS;
 	}
 
+	public String getUserProjects() {
+
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		/* userId = session.containsKey("userId"); */
+		userId = Integer.parseInt(session.get("userId").toString());
+		 projectList = userDAO.getUserProjects(userId);
+
+		if (projectList == null) {
+			projectList = new ArrayList<Project>();
+		}
+		return Action.SUCCESS;
+	}
 }

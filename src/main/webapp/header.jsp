@@ -34,7 +34,7 @@
 			<ul>
 		
 				
-				<li><a class="btn activeH" href="/tickets" title="Boards">Boards</a></li>
+				<li><a class="btn activeH" href="welcomeBoard" title="Boards">Boards</a></li>
 				<li><a class="btn" href="listTicketsAction" title="Tickets">Tickets</a></li>
 				<li><a class="btn" href="listUsersAction" title="Users">Users</a></li>
 				<li><a class="btn" href="listProjectsAction" title="Projects">Projects</a></li>

@@ -24,11 +24,13 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Ticket findTicket(Integer id) {
 		Ticket ticket = get(Ticket.class, id);
+
 		ticket.getProject().getName();
 		ticket.getProject().getId();
 		if (ticket.getState().equals("Assigned")) {
 			ticket.getUser().getName();
 		}
+
 		return ticket;
 	}
 
@@ -37,13 +39,13 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	}
 
 	public List<Ticket> getTicketsForUser(Integer userId, Integer projectId) {
-		// return getHibernateTemplate().find(
-		// "select t from Ticket t inner join t.project p inner join p.users u
-		// where u.id=? and p.id=?", userId,
-		// projectId);
 		return getHibernateTemplate().find(
 				"select t from Ticket t inner join t.user u inner join u.projects p where u.id=? and p.id=?", userId,
 				projectId);
+	}
+
+	public List<Ticket> getUserTickets(Integer userId) {
+		return getHibernateTemplate().find("select t from Ticket t inner join t.user u  where u.id=?", userId);
 	}
 
 	@Transactional(readOnly = false)

@@ -77,6 +77,10 @@
 			</result>
 		
 		</action>
+		
+				<action name="userTickets" class="md.utm.fi.action.ticket.TicketAction" method="getUserTickets">
+			<result name="success">ticket/viewTickets.jsp</result>
+		</action>
 
 	</package>
 </struts>

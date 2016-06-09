@@ -22,6 +22,15 @@ public class CrudUserAction implements ModelDriven<User> {
 	private Integer userId;
 
 	private Integer projectId;
+	private Integer userTickets;
+
+	public Integer getUserTickets() {
+		return userTickets;
+	}
+
+	public void setUserTickets(Integer userTickets) {
+		this.userTickets = userTickets;
+	}
 
 	public List<User> getUserList() {
 		return userList;
@@ -116,6 +125,11 @@ public class CrudUserAction implements ModelDriven<User> {
 		if (userList == null) {
 			userList = new ArrayList<User>();
 		}
+		return Action.SUCCESS;
+	}
+
+	public String getBoardData() {
+		userTickets = userDAO.getCountTickets();
 		return Action.SUCCESS;
 	}
 

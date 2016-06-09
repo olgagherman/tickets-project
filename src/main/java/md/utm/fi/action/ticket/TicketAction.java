@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -11,6 +12,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.fi.model.dao.ProjectDAO;
 import md.utm.fi.model.dao.TicketDAO;
+import md.utm.fi.model.dao.UserDAO;
 import md.utm.fi.model.entity.Project;
 import md.utm.fi.model.entity.Ticket;
 
@@ -32,6 +34,8 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	private ProjectDAO projectDAO;
 
+	private UserDAO userDAO;
+
 	private List<Ticket> ticketList;
 
 	private Integer ticketId;
@@ -43,6 +47,9 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	private String nameUser;
 	private List<String> nameUsers;
+
+	private Integer userId;
+	private String usr;
 
 	public List<String> getNameProjects() {
 		return nameProjects;
@@ -133,6 +140,21 @@ public class TicketAction implements ModelDriven<Ticket> {
 		return Action.SUCCESS;
 	}
 
+	public String getUserTickets() {
+
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		/* userId = session.containsKey("userId"); */
+		userId = Integer.parseInt(session.get("userId").toString());
+
+		ticketList = userDAO.getUserTickets(userId);
+		ticket = new Ticket();
+		if (ticketList == null) {
+			ticketList = new ArrayList<Ticket>();
+
+		}
+		return Action.SUCCESS;
+	}
+
 	public String getNameProject() {
 		return nameProject;
 	}
@@ -179,6 +201,22 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	public void setTicketComplexity(String ticketComplexity) {
 		this.ticketComplexity = ticketComplexity;
+	}
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
+	public String getUsr() {
+		return usr;
+	}
+
+	public void setUsr(String usr) {
+		this.usr = usr;
 	}
 
 }

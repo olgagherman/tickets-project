@@ -23,6 +23,7 @@
     </listener-class>
   </listener>
   <welcome-file-list>
+  <welcome-file>CrudUserAction.welcomeBoard</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   

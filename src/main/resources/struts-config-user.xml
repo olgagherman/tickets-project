@@ -24,16 +24,16 @@
 				exception="md.utm.fi.exception.ObjectsNotFoundException"></exception-mapping>
 		</global-exception-mappings>
 
-		<action name="login">
+		<action name="login" >
 			<result>user/login.jsp</result>
 		</action>
 
-		<action name="logout" class="md.utm.fi.action.user.LoginAuthAction"
+		<action name="logout"  class="md.utm.library.action.user.LoginAuthAction"
 			method="logOut">
 			<result>user/login.jsp</result>
 		</action>
 
-		<action name="register">
+		<action name="register" >
 			<result>user/createUser.jsp</result>
 		</action>
 
@@ -41,7 +41,7 @@
 			<result name="success" type="redirect">
 				<param name="location">/index.jsp</param>
 			</result>
-			<result name="error">
+			<result name="error" >
 				user/login.jsp
 			</result>
 		</action>
@@ -90,6 +90,13 @@
 		<action name="getUresProjectTickets" class="md.utm.fi.action.user.UserViewAction" method="getTicketsForTheUser">
 			<result name="success">user/userTicketsForProject.jsp</result>
 		</action>
+		
+		
+<action name="welcomeBoard" class="md.utm.fi.action.user.CrudUserAction" method="getBoardData">
+			<result name="success">index.jsp</result>
+		</action> 
+	
 
+		
 	</package>
 </struts>

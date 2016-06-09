@@ -42,7 +42,7 @@
 			</s:iterator>
 		</table>
 		
-			<s:submit value="Add users to the Ticket"/>
+			
 		</s:form>
 	</s:if> 
 

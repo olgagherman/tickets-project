@@ -24,6 +24,11 @@ public interface UserDAO extends GenericDao {
 
 	void addUsersToTheTicket(Integer userId, Ticket ticket);
 
+	public int getCountTickets();
+
+	public List<Ticket> getUserTickets(Integer userId);
+
+	public List<Project> getUserProjects(Integer userId);
 	/*
 	 * public List<Project> retrieveAllProjects(User user);
 	 */

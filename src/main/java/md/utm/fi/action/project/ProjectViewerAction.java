@@ -2,8 +2,10 @@ package md.utm.fi.action.project;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import md.utm.fi.model.dao.ProjectDAO;
@@ -62,6 +64,8 @@ public class ProjectViewerAction extends ActionSupport {
 	}
 
 	public String listAllProjectUsers() {
+		Map<String, Object> sesio = ActionContext.getContext().getSession();
+		sesio.get("logged");
 		usersList = projectDAO.retrieveAllProjectUser(projectDAO.findProject(projectId));
 		if (usersList == null) {
 			usersList = new ArrayList<User>();

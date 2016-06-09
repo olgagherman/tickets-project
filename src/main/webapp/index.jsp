@@ -3,13 +3,16 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <s:include value="header.jsp" />
+<!-- <meta http-equiv="refresh" content="0; URL="./" /> -->
 <div id="board-items" class="container-fluid margin-top-menu">
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-2">
 			<a class="board-item">
 				Remained tickets
-				<span>5</span>
+				<span>
+				<font size="5" color="orange"> <s:property value="userTickets" /></font>
+				</span>
 			</a>
 		</div>
 		<div class="col-md-2">

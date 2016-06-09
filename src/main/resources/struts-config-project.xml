@@ -63,6 +63,8 @@
 				<param name="projectId">${projectId}</param>
 			</result>
 		</action>
-
+	<action name="userProjects" class="md.utm.fi.action.project.ProjectAction" method="getUserProjects">
+			<result name="success">project/viewProjects.jsp</result>
+		</action>
 	</package>
 </struts>
