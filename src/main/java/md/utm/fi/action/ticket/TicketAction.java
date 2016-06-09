@@ -146,7 +146,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 		/* userId = session.containsKey("userId"); */
 		userId = Integer.parseInt(session.get("userId").toString());
 
-		ticketList = userDAO.getUserTickets(userId);
+		ticketList = ticketDAO.getUserTickets(userId);
 		ticket = new Ticket();
 		if (ticketList == null) {
 			ticketList = new ArrayList<Ticket>();

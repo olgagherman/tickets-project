@@ -136,7 +136,7 @@ public class ProjectAction implements ModelDriven<Project> {
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		/* userId = session.containsKey("userId"); */
 		userId = Integer.parseInt(session.get("userId").toString());
-		 projectList = userDAO.getUserProjects(userId);
+		projectList = projectDAO.getUserProjects(userId);
 
 		if (projectList == null) {
 			projectList = new ArrayList<Project>();

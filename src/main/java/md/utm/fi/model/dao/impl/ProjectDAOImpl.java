@@ -77,4 +77,8 @@ public class ProjectDAOImpl extends GenericDaoImpl implements ProjectDAO {
 
 	}
 
+	public List<Project> getUserProjects(Integer userId) {
+		return getHibernateTemplate().find("select p from Project p inner join p.users u  where u.id=?", userId);
+	}
+
 }

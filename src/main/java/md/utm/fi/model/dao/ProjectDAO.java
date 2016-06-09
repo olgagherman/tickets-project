@@ -20,4 +20,6 @@ public interface ProjectDAO extends GenericDao {
 	List<String> getAllProjectName();
 
 	public Project findProject(String name);
+
+	List<Project> getUserProjects(Integer userId);
 }

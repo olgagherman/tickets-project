@@ -220,7 +220,7 @@ public class UserDAOImplTest {
 	@Test
 	public void addUsersToTheTicket() {
 		User user = userDAO.findUser(1);
-		Ticket ticket = ticketDAO.findTicket(2);
+		Ticket ticket = ticketDAO.findTicket(1);
 		ticket.setUser(user);
 		ticket.setState("Assigned");
 		ticketDAO.saveOrUpdate(ticket);

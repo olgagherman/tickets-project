@@ -7,11 +7,11 @@
 <s:include value="../header.jsp" />
 <div class="container-fluid margin-top-menu">
 	<div style="float: left; width: 100%; margin: 10px 50px;">
-				<s:if test="%{#session.admin ==true}"></s:if>
+				<s:if test="%{#session.admin ==true}">
 		<a class="btn" style="float: left;"
 			href=<s:url action="registerTicket"> 		
 			</s:url>> + Add Ticket </a>
-			
+			</s:if>
 					<s:if test="%{#session.logged ==true}">
 		<a class="btn" style="float: left;"
 			href=<s:url action="userTickets"> 		

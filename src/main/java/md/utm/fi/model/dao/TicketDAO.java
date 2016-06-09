@@ -16,4 +16,6 @@ public interface TicketDAO extends GenericDao {
 	List<Ticket> getTicketsForUser(Integer userId, Integer projectId);
 
 	void addUsersToTheTicket(User user, Integer ticketId);
+
+	List<Ticket> getUserTickets(Integer userId);
 }
