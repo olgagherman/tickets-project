@@ -50,7 +50,7 @@
 		</action>
 		<action name="removeTicket" class="md.utm.fi.action.ticket.TicketAction"
 			method="removeTicket">
-			<result name="success" type="redirectAction">listTicketAction</result>
+			<result name="success" type="redirectAction">listTicketsAction</result>
 		</action>
 
 		<action name="registerTicket" class="md.utm.fi.action.ticket.TicketAction"

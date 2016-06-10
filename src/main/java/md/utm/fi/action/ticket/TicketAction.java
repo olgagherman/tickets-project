@@ -129,7 +129,7 @@ public class TicketAction implements ModelDriven<Ticket> {
 			tk.setProject(null);
 			tk.setUser(null);
 			ticketDAO.saveOrUpdate(tk);
-			getTicketDAO().deleteTicket(ticketId);
+			ticketDAO.deleteTicket(ticketId);
 		}
 		return Action.SUCCESS;
 	}

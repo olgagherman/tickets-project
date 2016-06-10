@@ -19,7 +19,6 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)
 	public Ticket findTicket(Integer id) {
 		Ticket ticket = get(Ticket.class, id);
-
 		ticket.getProject().getName();
 		ticket.getProject().getId();
 		if (ticket.getState().equals("Assigned")) {
@@ -30,7 +29,7 @@ public class TicketDAOImpl extends GenericDaoImpl implements TicketDAO {
 	}
 
 	public void deleteTicket(Integer id) {
-		delete(findTicket(id));
+		delete(get(Ticket.class, id));
 	}
 
 	public List<Ticket> getTicketsForUser(Integer userId, Integer projectId) {
