@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="/struts-tags"%>
 <s:include value="../header.jsp" />
 <link rel="stylesheet" type="text/css" href="css/project.css">
-
+<div class="container-fluid margin-top-menu">
 	<br>
 	 <div id="bodyObject">
 		<div id="imag">
@@ -26,6 +26,7 @@
 			</font>
 			<br>
 		</div>
+		<s:if test="%{#session.admin ==true}">
 		<ul id="bodyProj">
 			<li><a class="btn" href=
 					<s:url action="viewProjectsUsers"> 
@@ -43,24 +44,32 @@
 					+ Add User 
 				</a>
 			</li>
-			<li><a class="btn" href=
+			<li>
+			<s:if test="%{#session.admin ==true}">
+			<a class="btn" href=
 					<s:url action="editProject"> 
 						<s:param name="projectId" value="projectId" />
 					</s:url>>
 					Edit 
 				</a>
+				</s:if>
 			</li>
-			<li><a class="btn" href=
+			<li>
+			<s:if test="%{#session.admin ==true}">
+			<a class="btn" href=
 					<s:url action="removeProject"> 
 						<s:param name="projectId" value="projectId" />
 					</s:url>
 				>
+				
 					Remove 
 				</a>
+				</s:if>
 			</li>
 		</ul>
+		</s:if>
 	</div>
-	
+	</div>
 	<br>
 	<br>
 	

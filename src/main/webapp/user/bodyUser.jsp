@@ -25,6 +25,7 @@
 			<font size="5" color="orange">Is Administrator : <s:property value="user.admin" /></font>
 			<br>
 		</div>
+		<s:if test="%{#session.admin ==true}">
 		<ul id="bodyProj">
 			<li><a class="btn" href=<s:url action="#"> 									</s:url>>
 					Tickets</a></li>
@@ -37,6 +38,7 @@
 				href=<s:url action="removeUser"> <s:param name="userId" value="%{user.id}" /></s:url>>
 					Remove </a></li>
 		</ul>
+		</s:if>
 	</div>
 	<br>
 	

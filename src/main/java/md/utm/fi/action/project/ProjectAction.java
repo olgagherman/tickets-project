@@ -105,6 +105,10 @@ public class ProjectAction implements ModelDriven<Project> {
 
 	public String removeProject() {
 		if (projectId != null) {
+			Project pr = projectDAO.findProject(projectId);
+			pr.setTickets(null);
+			pr.setUsers(null);
+			projectDAO.saveOrUpdate(pr);
 			getProjectDAO().deleteProject(projectId);
 		}
 		return Action.SUCCESS;

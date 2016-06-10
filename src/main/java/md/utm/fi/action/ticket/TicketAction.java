@@ -125,6 +125,10 @@ public class TicketAction implements ModelDriven<Ticket> {
 
 	public String removeTicket() {
 		if (ticketId != null) {
+			Ticket tk = ticketDAO.findTicket(ticketId);
+			tk.setProject(null);
+			tk.setUser(null);
+			ticketDAO.saveOrUpdate(tk);
 			getTicketDAO().deleteTicket(ticketId);
 		}
 		return Action.SUCCESS;

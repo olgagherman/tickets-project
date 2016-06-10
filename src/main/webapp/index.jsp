@@ -11,7 +11,7 @@
 			<a class="board-item">
 				Remained tickets
 				<span>
-				<font size="5" color="orange"> <s:property value="userTickets" /></font>
+				 <s:property value="userTickets" />
 				</span>
 			</a>
 		</div>

@@ -52,7 +52,7 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 		if (sessionMap.containsKey("userName")) {
 			sessionMap.remove("userName");
 			sessionMap.remove("userId");
-			sessionMap.put("logged", false);
+			sessionMap.put("logged", null);
 			sessionMap.put("admin", false);
 		}
 		return SUCCESS;

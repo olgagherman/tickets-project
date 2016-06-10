@@ -97,6 +97,10 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	public String removeUser() {
 		if (userId != null) {
+			User user = userDAO.findUser(userId);
+			user.setProjects(null);
+			user.setTickets(null);
+			userDAO.saveOrUpdate(user);
 			getUserDAO().deleteUser(userId);
 		}
 		return Action.SUCCESS;

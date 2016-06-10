@@ -52,7 +52,9 @@
 						<td><s:property value="complexity" /></td>
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 
-						<td><a
+						<td>
+								<s:if test="%{#session.admin ==true}">
+						<a
 							href=<s:url action="editTicket">
 						<s:param name="ticketId" value="%{id}" />
 					</s:url>>
@@ -62,7 +64,9 @@
 						<s:param name="ticketId" value="%{id}" />
 					</s:url>>
 								<img alt="Remove" src=<s:url value="/images/delete-icon.png"/>>
-						</a></td>
+						</a>
+						</s:if>
+						</td>
 						<td><s:property value="state" /></td>
 					</tr>
 				</s:iterator>

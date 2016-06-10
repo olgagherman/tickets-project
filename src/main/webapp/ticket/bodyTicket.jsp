@@ -35,7 +35,7 @@
 			<br>
 		</div>
 		
-		
+		<s:if test="%{#session.admin ==true}">
 		<a class="btn" href=
 					<s:url action="addUserToTicket" > 
 							 <s:param name="ticketId" value="%{ticket.id}" />
@@ -44,6 +44,7 @@
 				>
 					Select a user 
 				</a>
+				</s:if>
 	</div>
 	<br>
 	

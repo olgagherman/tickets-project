@@ -28,9 +28,9 @@
 			<result>user/login.jsp</result>
 		</action>
 
-		<action name="logout"  class="md.utm.library.action.user.LoginAuthAction"
+		<action name="logout"  class="md.utm.fi.action.user.LoginAuthAction"
 			method="logOut">
-			<result>user/login.jsp</result>
+			<result>index.jsp</result>
 		</action>
 
 		<action name="register" >

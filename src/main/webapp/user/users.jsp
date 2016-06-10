@@ -44,7 +44,9 @@
 						<td><s:date name="createdDate" format="dd/MM/yyyy" /></td>
 						<td><s:property value="admin" /></td>
 						<td><s:property value="phoneNumber" /></td>
-						<td><a
+						<td>
+						<s:if test="%{#session.admin ==true}">
+						<a
 							href=<s:url action="editUser">
 						<s:param name="userId" value="%{id}" />
 					</s:url>>
@@ -54,7 +56,9 @@
 						<s:param name="userId" value="%{id}" />
 					</s:url>>
 								<img alt="Remove" src=<s:url value="/images/delete-icon.png"/>>
-						</a></td>
+						</a>
+						</s:if>
+						</td>
 					</tr>
 				</s:iterator>
 			</tbody>
