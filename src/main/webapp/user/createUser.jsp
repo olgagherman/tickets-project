@@ -8,6 +8,10 @@
 		<s:textfield name="name" label="Name" value="%{name}" />
 		<s:textfield name="surname" label="Surname" value="%{surname}" />
 			<s:textfield name="phoneNumber" label="Phone " value="%{phoneNumber}" />
+		<s:if test="%{#session.admin ==true}">
+   <s:checkbox label="Is Admin" name="is_admin" value="is_admin" fieldValue="true"/>
+   </s:if>
+		
 		<s:textfield name="email" label="Email" value="%{email}" />
 		<s:password name="password" label="Password" value="" />
 		<s:if test="%{id==null}">

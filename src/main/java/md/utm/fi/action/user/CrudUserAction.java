@@ -23,7 +23,7 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	private Integer projectId;
 	private Integer userTickets;
-
+private boolean is_admin;
 	public Integer getUserTickets() {
 		return userTickets;
 	}
@@ -70,6 +70,7 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	public String addUser() throws Exception {
 		user.setCreatedDate(new Date());
+		user.setAdmin(is_admin);
 		userDAO.save(user);
 		if (user.getName() != null) {
 			user = new User();
@@ -79,6 +80,7 @@ public class CrudUserAction implements ModelDriven<User> {
 	}
 
 	public String updateUser() {
+		user.setAdmin(is_admin);
 		userDAO.saveOrUpdate(user);
 		return Action.SUCCESS;
 	}
@@ -135,6 +137,14 @@ public class CrudUserAction implements ModelDriven<User> {
 	public String getBoardData() {
 		userTickets = userDAO.getCountTickets();
 		return Action.SUCCESS;
+	}
+
+	public boolean isIs_admin() {
+		return is_admin;
+	}
+
+	public void setIs_admin(boolean is_admin) {
+		this.is_admin = is_admin;
 	}
 
 }
