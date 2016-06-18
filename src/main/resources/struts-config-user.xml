@@ -24,16 +24,16 @@
 				exception="md.utm.fi.exception.ObjectsNotFoundException"></exception-mapping>
 		</global-exception-mappings>
 
-		<action name="login" >
+		<action name="login">
 			<result>user/login.jsp</result>
 		</action>
 
-		<action name="logout"  class="md.utm.fi.action.user.LoginAuthAction"
+		<action name="logout" class="md.utm.fi.action.user.LoginAuthAction"
 			method="logOut">
 			<result>index.jsp</result>
 		</action>
 
-		<action name="register" >
+		<action name="register">
 			<result>user/createUser.jsp</result>
 		</action>
 
@@ -41,41 +41,53 @@
 			<result name="success" type="redirect">
 				<param name="location">/index.jsp</param>
 			</result>
-			<result name="error" >
+			<result name="error">
 				user/login.jsp
 			</result>
 		</action>
 
-		<action name="createUserAction" class="md.utm.fi.action.user.CrudUserAction" method="addUser">
+		<action name="createUserAction" class="md.utm.fi.action.user.CrudUserAction"
+			method="addUser">
 			<result name="success">index.jsp</result>
 			<result name="error">user/createUser.jsp</result>
 		</action>
 
-		<action name="updateUserAction" class="md.utm.fi.action.user.CrudUserAction" method="updateUser">
+		<action name="updateUserAction" class="md.utm.fi.action.user.CrudUserAction"
+			method="updateUser">
 			<result name="success" type="redirectAction">listUsersAction</result>
 			<result name="error" type="redirectAction">listUsersAction</result>
 		</action>
 
-		<action name="listUsersAction" class="md.utm.fi.action.user.CrudUserAction" method="listAllUsers">
+		<action name="listUsersAction" class="md.utm.fi.action.user.CrudUserAction"
+			method="listAllUsers">
 			<result name="success">user/users.jsp</result>
 		</action>
+		
+		<action name="listUsers" class="md.utm.fi.action.user.CrudUserAction"
+			method="getAjaxResponse">
+			<result name="success">index.jsp</result>
+		</action>
 
-		<action name="editUser" class="md.utm.fi.action.user.CrudUserAction" method="editUser">
+		<action name="editUser" class="md.utm.fi.action.user.CrudUserAction"
+			method="editUser">
 			<result name="success">user/createUser.jsp</result>
 		</action>
 
-		<action name="removeUser" class="md.utm.fi.action.user.CrudUserAction" method="removeUser">
+		<action name="removeUser" class="md.utm.fi.action.user.CrudUserAction"
+			method="removeUser">
 			<result name="success" type="redirectAction">listUsersAction</result>
 		</action>
 
-		<action name="viewUsersWithoutThisProject" class="md.utm.fi.action.user.CrudUserAction" method="listAllUsersNotBoundToProject">
+		<action name="viewUsersWithoutThisProject" class="md.utm.fi.action.user.CrudUserAction"
+			method="listAllUsersNotBoundToProject">
 			<result name="success">project/projectAssignUser.jsp</result>
 		</action>
-		
-		<action name="viewProjectsUsers" class="md.utm.fi.action.user.CrudUserAction" method="listAllProjectUsers">
+
+		<action name="viewProjectsUsers" class="md.utm.fi.action.user.CrudUserAction"
+			method="listAllProjectUsers">
 			<result name="success">user/users.jsp</result>
 		</action>
-		
+
 		<action name="addUserToTheProject" class="md.utm.fi.action.user.AddUserToTheProject"
 			method="addUsersToTheProject">
 			<result name="success" type="redirectAction">
@@ -83,20 +95,23 @@
 				<param name="projectId">${projectId}</param>
 			</result>
 		</action>
-	<action name="getBodyUser" class="md.utm.fi.action.user.UserViewAction" method="getBodyUser">
+		<action name="getBodyUser" class="md.utm.fi.action.user.UserViewAction"
+			method="getBodyUser">
 			<result name="success">user/bodyUser.jsp</result>
 		</action>
-		
-		<action name="getUresProjectTickets" class="md.utm.fi.action.user.UserViewAction" method="getTicketsForTheUser">
+
+		<action name="getUresProjectTickets" class="md.utm.fi.action.user.UserViewAction"
+			method="getTicketsForTheUser">
 			<result name="success">user/userTicketsForProject.jsp</result>
 		</action>
-		
-		
-<action name="welcomeBoard" class="md.utm.fi.action.user.CrudUserAction" method="getBoardData">
-			<result name="success">index.jsp</result>
-		</action> 
-	
 
-		
+
+		<action name="welcomeBoard" class="md.utm.fi.action.user.CrudUserAction"
+			method="getBoardData">
+			<result name="success">index.jsp</result>
+		</action>
+
+
+
 	</package>
 </struts>

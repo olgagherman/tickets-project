@@ -13,7 +13,10 @@
 						<link rel="stylesheet" type="text/css" href="css/styleTable.css">
 							<link rel="stylesheet" type="text/css" href="css/css.css">
 								<link rel="stylesheet" type="text/css" href="css/css-common.css">
-							<title>Ticket</title>
+									<link rel="stylesheet" type="text/css" href="css/project.css">
+										<script src="js/jquery.min.3.js" type="text/javascript"></script>
+										<script src="js/jquery.js" type="text/javascript"></script>
+										<title>Ticket</title>
 </head>
 <div id="header" class="navbar navbar-fixed-top">
 	<div class="top">
@@ -32,13 +35,11 @@
 	<div class="menu">
 		<div class="wFix">
 			<ul>
-		
-				
 				<li><a class="btn activeH" href="welcomeBoard" title="Boards">Boards</a></li>
 				<li><a class="btn" href="listTicketsAction" title="Tickets">Tickets</a></li>
 				<li><a class="btn" href="listUsersAction" title="Users">Users</a></li>
 				<li><a class="btn" href="listProjectsAction" title="Projects">Projects</a></li>
-			
+
 			</ul>
 		</div>
 	</div>

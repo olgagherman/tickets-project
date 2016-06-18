@@ -59,3 +59,7 @@ float:left;
 #menuProj{
 	/* float :left; */
 }
+
+.bodyProject {
+	display: flex;
+}

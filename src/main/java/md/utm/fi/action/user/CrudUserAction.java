@@ -1,14 +1,21 @@
 package md.utm.fi.action.user;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.fi.model.dao.UserDAO;
+import md.utm.fi.model.entity.Person;
 import md.utm.fi.model.entity.User;
 
 public class CrudUserAction implements ModelDriven<User> {
@@ -23,7 +30,8 @@ public class CrudUserAction implements ModelDriven<User> {
 
 	private Integer projectId;
 	private Integer userTickets;
-private boolean is_admin;
+	private boolean is_admin;
+	
 	public Integer getUserTickets() {
 		return userTickets;
 	}
@@ -125,6 +133,19 @@ private boolean is_admin;
 		}
 		return Action.SUCCESS;
 	}
+	
+	public String getAjaxResponse() throws JsonGenerationException, JsonMappingException, IOException {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String var = "message";
+
+		//Object to JSON in file
+		mapper.writeValue(new File("/home/olgag/file.json"), var);
+
+		//Object to JSON in String
+		String jsonInString = mapper.writeValueAsString(var);
+		return "jsonInString"; 	
+	} 
 
 	public String listAllProjectUsers() {
 		userList = userDAO.getUsersForProject(projectId);

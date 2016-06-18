@@ -144,6 +144,11 @@ ul#bodyProj li a {
     padding: 10px 20px;
    
 }
+
+ul#bodyProj li a.btn {
+    width: 115px;
+   
+}
 /*=========BOARD STYLES=========*/
 .board-item {
 	height: 100px;
@@ -176,3 +181,83 @@ ul#bodyProj li a {
 	padding-top: 5%;
 }
 /*=========END BOARD=========*/
+
+/*========== Messages =============*/
+.contactsListContainer, .messagesContainer{
+   
+    position: absolute;
+    width: 200px;
+    height: 30px;
+}
+
+.messagesContainer {
+	left: 65%;
+	height: 250px;
+	top: -250px;
+	display: none;
+}
+
+.contactsListContainer {
+	left: 83%;
+	top: 0px;
+}
+
+.contactsListScroll, .messagesScroll {
+	position: relative;
+	height: 250px;
+	overflow-y: scroll;
+	background-color: white;
+}
+
+.contactsListScroll {
+	display: none;
+}
+
+.contactsTitle, .contactName {
+	background-color: blue;
+	height: 30px;
+	color: white;
+	padding-top: 2px;
+}
+
+.contactsTitle {
+	padding-left: 5px;
+}
+
+.writeMessages {
+	top: -32px;	
+	position: relative;
+}
+
+#writeMessage {
+	width: 200px;
+	float: left;
+	padding-right: 40px;
+}
+
+#sendMessage {
+	position: relative;
+	width: 45px;
+	right: -156px;
+	top: -32px;'
+	float: left;
+}
+
+.contactsList ul li {
+	text-decoration: none;
+	margin: 0;
+	cursor: pointer;
+	display: table;
+}
+
+.contactsListScroll {
+	background-color: white;
+}
+    
+.closeMessage {
+	position: relative;
+	left: 180px;
+	top: 2px;
+	float:left;
+	cursor: pointer;
+}
